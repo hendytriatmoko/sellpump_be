@@ -355,3 +355,98 @@ func (m *User) Signin(params models.UserToken) ([]models.UserGet, string, error)
 	return userRead, token, nil
 
 }
+
+func (m *User) ProfilCreate(params models.CreateProfil) (models.ProfilCreate, error) {
+
+	profil := models.ProfilCreate{}
+
+	if params.Npwp != nil {
+		path := "/profil/"
+
+		pathImage := "./files/"+path
+		ext := filepath.Ext(params.Npwp.Filename)
+		filename := strings.Replace(params.IdUser," ","_", -1)+"npwp"+ext
+
+		os.MkdirAll(pathImage, 0777)
+		errx := m.helper.SaveUploadedFile(params.Npwp, pathImage+filename)
+		if errx != nil{
+			return models.ProfilCreate{},errx
+		}
+
+		url := string(filepath.FromSlash(path+filename))
+
+		//profil.Npwp = new(string)
+		profil.Npwp = url
+	}
+	if params.Siup != nil {
+		path := "/profil/"
+
+		pathImage := "./files/"+path
+		ext := filepath.Ext(params.Siup.Filename)
+		filename := strings.Replace(params.IdUser," ","_", -1)+"siup"+ext
+
+		os.MkdirAll(pathImage, 0777)
+		errx := m.helper.SaveUploadedFile(params.Siup, pathImage+filename)
+		if errx != nil{
+			return models.ProfilCreate{},errx
+		}
+
+		url := string(filepath.FromSlash(path+filename))
+
+		//profil.Npwp = new(string)
+		profil.Siup = url
+	}
+	if params.Tdp != nil {
+		path := "/profil/"
+
+		pathImage := "./files/"+path
+		ext := filepath.Ext(params.Tdp.Filename)
+		filename := strings.Replace(params.IdUser," ","_", -1)+"tdp"+ext
+
+		os.MkdirAll(pathImage, 0777)
+		errx := m.helper.SaveUploadedFile(params.Tdp, pathImage+filename)
+		if errx != nil{
+			return models.ProfilCreate{},errx
+		}
+
+		url := string(filepath.FromSlash(path+filename))
+
+		//profil.Npwp = new(string)
+		profil.Tdp = url
+	}
+
+	profil.IdProfil = m.helper.StringWithCharset()
+	profil.Nama = params.Nama
+	profil.Alamat = params.Alamat
+	profil.IdUser = params.IdUser
+	profil.CreatedAt = m.helper.GetTimeNow()
+
+	err := databases.DatabaseSellPump.DB.Table("profil").Create(&profil).Error
+
+	if err != nil {
+		return models.ProfilCreate{}, err
+	}
+
+	return profil, nil
+}
+
+func (m *User) ProfilGet(params models.GetUser) ([]models.ProfilCreate, error) {
+
+	profil := []models.ProfilCreate{}
+
+	err := databases.DatabaseSellPump.DB.Table("profil")
+	if params.IdUser != "" {
+		err = err.Where("id_user = ?", params.IdUser)
+	}
+
+	err = err.Find(&profil)
+
+	errx := err.Error
+
+
+	if errx != nil {
+		return []models.ProfilCreate{}, errx
+	}
+
+	return profil, nil
+}

@@ -135,3 +135,23 @@ type UserToken struct {
 	Email       string `json:"email" form:"email" binding:"-"`
 	Password    string  `json:"password" form:"password" binding:"-"`
 }
+
+type CreateProfil struct {
+	IdUser		string `json:"id_user" form:"id_user"`
+	Nama        string `json:"nama" form:"nama"`
+	Alamat      string `json:"alamat" form:"alamat"`
+	Npwp      	*multipart.FileHeader `json:"npwp" form:"npwp"`
+	Siup      	*multipart.FileHeader `json:"siup" form:"siup"`
+	Tdp      	*multipart.FileHeader `json:"tdp" form:"tdp"`
+	CreatedAt   string `json:"created_at" form:"created_at"`
+}
+type ProfilCreate struct {
+	IdProfil	string `json:"id_profil" form:"id_profil"`
+	IdUser		string `json:"id_user" form:"id_user"`
+	Nama        string `json:"nama" form:"nama"`
+	Alamat      string `json:"alamat" form:"alamat"`
+	Npwp      	string `json:"npwp" form:"npwp"`
+	Siup      	string `json:"siup" form:"siup"`
+	Tdp      	string `json:"tdp" form:"tdp"`
+	CreatedAt   string `json:"created_at" form:"created_at"`
+}

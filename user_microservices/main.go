@@ -126,6 +126,14 @@ func main() {
 				userEP.PUT("/update", user.UserUpdate)
 				userEP.DELETE("/delete", user.UserDelete)
 			}
+			profilEP := v1.Group("profil")
+			{
+				authprofilEP := profilEP.Group("")
+				authprofilEP.Use(middleware.Auth)
+
+				authprofilEP.POST("/create", user.ProfilCreate)
+				authprofilEP.GET("/getprofil", user.GetDataProfil)
+			}
 		}
 
 	}
