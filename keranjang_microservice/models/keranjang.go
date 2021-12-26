@@ -37,3 +37,14 @@ type DeleteKeranjang struct {
 	IdKeranjang   	string `json:"id_keranjang" form:"id_keranjang"`
 	DeletedAt  		string `json:"deleted_at" form:"deleted_at"`
 }
+
+type RajaOngkir struct {
+	IdProvinsi			string `json:"id_provinsi" form:"id_provinsi"`
+	IdCity     			string `json:"id_city" form:"id_city"`
+	IdKecamatan			string `json:"id_kecamatan" form:"id_kecamatan"`
+	Origin				string `json:"origin" form:"origin"`
+	OriginType 			string `json:"origin_type" form:"origin_type"`
+	Destination			string `json:"destination" form:"destination"`
+	DestinationType		string `json:"destination_type" form:"destination_type"`
+	Weight				string `json:"weight" form:"weight"`
+}

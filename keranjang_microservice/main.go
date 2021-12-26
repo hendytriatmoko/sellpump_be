@@ -121,6 +121,14 @@ func main() {
 				authUserEP.POST("/create", keranjang.KeranjangCreate)
 				authUserEP.DELETE("/delete", keranjang.KeranjangDelete)
 			}
+
+			rajaongkirEP := v1.Group("rajaongkir")
+			{
+				rajaongkirEP.GET("/getprovince", keranjang.GetDataRoProvince)
+				rajaongkirEP.GET("/getcity", keranjang.GetDataRoCity)
+				rajaongkirEP.GET("/getsubdistrict", keranjang.GetDataRoSubdistrict)
+				rajaongkirEP.GET("/getcost", keranjang.GetDataRoCost)
+			}
 		}
 
 	}

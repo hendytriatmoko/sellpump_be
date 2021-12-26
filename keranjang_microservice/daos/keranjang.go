@@ -1,11 +1,15 @@
 package daos
 
 import (
+	"fmt"
+	"io/ioutil"
 	"keranjang_microservice/databases"
 	"keranjang_microservice/helper"
 	"keranjang_microservice/models"
+	"net/http"
 	_ "os"
 	_ "path/filepath"
+	"strings"
 	_ "strings"
 )
 
@@ -68,4 +72,111 @@ func (m *Keranjang) KeranjangDelete(params models.DeleteKeranjang) (models.Delet
 
 	return keranjang, nil
 
+}
+
+func (m *Keranjang) ProvinceGet(params models.RajaOngkir) (string, error) {
+
+
+	url := "https://pro.rajaongkir.com/api/province"
+
+	req, _ := http.NewRequest("GET", url, nil)
+
+	req.Header.Add("key", "0e33e27e42c55799ebe174e1307f2adf")
+
+	res, _ := http.DefaultClient.Do(req)
+
+	defer res.Body.Close()
+
+	body, _ := ioutil.ReadAll(res.Body)
+
+	isi := string(body)
+
+	return isi, nil
+}
+
+func (m *Keranjang) CityGet(params models.RajaOngkir) (string, error) {
+
+	url := ""
+	if params.IdProvinsi == "" && params.IdCity == ""{
+		url = "https://pro.rajaongkir.com/api/city"
+	}
+	if params.IdProvinsi != "" && params.IdCity == ""{
+		url = "https://pro.rajaongkir.com/api/city?province="+params.IdProvinsi
+	}
+	if params.IdProvinsi == "" && params.IdCity != ""{
+		url = "https://pro.rajaongkir.com/api/city?id="+params.IdCity
+	}
+	if params.IdProvinsi != "" && params.IdCity != ""{
+		url = "https://pro.rajaongkir.com/api/city?id="+params.IdCity+"&province="+params.IdProvinsi
+	}
+	req, _ := http.NewRequest("GET", url, nil)
+
+	req.Header.Add("key", "0e33e27e42c55799ebe174e1307f2adf")
+
+	res, _ := http.DefaultClient.Do(req)
+
+	defer res.Body.Close()
+
+	body, _ := ioutil.ReadAll(res.Body)
+
+	isi := string(body)
+
+	fmt.Println("city"+params.IdCity)
+	fmt.Println("province"+params.IdProvinsi)
+
+	return isi, nil
+}
+
+func (m *Keranjang) SubdistrictGet(params models.RajaOngkir) (string, error) {
+
+	url := ""
+	if params.IdCity != "" && params.IdKecamatan == ""{
+		url = "https://pro.rajaongkir.com/api/subdistrict?city="+params.IdCity
+	}
+	if params.IdCity != "" && params.IdKecamatan != ""{
+		url = "https://pro.rajaongkir.com/api/subdistrict?city="+params.IdCity+"&id="+params.IdKecamatan
+	}
+	req, _ := http.NewRequest("GET", url, nil)
+
+	req.Header.Add("key", "0e33e27e42c55799ebe174e1307f2adf")
+
+	res, _ := http.DefaultClient.Do(req)
+
+	defer res.Body.Close()
+
+	body, _ := ioutil.ReadAll(res.Body)
+
+	isi := string(body)
+
+	fmt.Println("city"+params.IdCity)
+	fmt.Println("province"+params.IdProvinsi)
+
+	return isi, nil
+}
+
+func (m *Keranjang) CostGet(params models.RajaOngkir) (string, error) {
+
+	url := "https://pro.rajaongkir.com/api/cost"
+
+	payload := strings.NewReader("origin="+params.Origin+"&originType=subdistrict"+
+		"&destination="+params.Destination+"&destinationType=subdistrict&weight="+params.Weight+
+		"&courier=jne:tiki:pos")
+
+	req, _ := http.NewRequest("POST", url, payload)
+
+	req.Header.Add("key", "0e33e27e42c55799ebe174e1307f2adf")
+	req.Header.Add("content-type", "application/x-www-form-urlencoded")
+
+	res, _ := http.DefaultClient.Do(req)
+
+	defer res.Body.Close()
+
+	body, _ := ioutil.ReadAll(res.Body)
+
+	isi := string(body)
+
+	fmt.Println("city"+params.IdCity)
+	fmt.Println("province"+params.IdProvinsi)
+
+	return isi, nil
 }
