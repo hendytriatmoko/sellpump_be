@@ -120,6 +120,7 @@ func main() {
 				authUserEP.GET("/getkeranjang", keranjang.GetDataKeranjang)
 				authUserEP.POST("/create", keranjang.KeranjangCreate)
 				authUserEP.DELETE("/delete", keranjang.KeranjangDelete)
+				userEP.GET("/getprovince", keranjang.GetDataRoProvince)
 			}
 
 			rajaongkirEP := v1.Group("rajaongkir")
