@@ -21,7 +21,7 @@ func (m *Keranjang) KeranjangGet(params models.KeranjangGet) ([]models.Keranjang
 
 	keranjang := []models.KeranjangGet{}
 
-	err := databases.DatabaseSellPump.DB.Table("keranjang").Select("keranjang.*,k.nama_produk,k.harga_produk,k.deskripsi_produk,k.gambar_produk").
+	err := databases.DatabaseSellPump.DB.Table("keranjang").Select("keranjang.*,k.nama_produk,k.harga_produk,k.deskripsi_produk,k.gambar_produk,k.berat_produk").
 		Joins("join produk k on k.id_produk = keranjang.id_produk")
 
 	if params.IdUser != "" {
