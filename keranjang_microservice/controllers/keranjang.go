@@ -264,6 +264,78 @@ func (u *Keranjang) GetDataRoCost(c *gin.Context) {
 
 }
 
+func (u *Keranjang) PesananCreate(c *gin.Context) {
+
+	params := models.CreatePesanan{}
+
+	response := models.Response{}
+
+	err := c.ShouldBind(&params)
+
+	if err != nil {
+		var mess string
+		if err != nil {
+			mess = mess + err.Error()
+		}
+
+		response.ApiMessage = "validation " + mess
+		c.JSON(400, response)
+	} else {
+
+		data, err := u.daos.PesananCreate(params)
+
+		if err != nil {
+			response.ApiStatus = 0
+			response.ApiMessage = err.Error()
+			c.JSON(500, response)
+		} else {
+			response.ApiStatus = 1
+			response.Data = data
+			response.ApiMessage = common.StatusSukses
+			c.JSON(http.StatusOK, response)
+
+		}
+
+	}
+
+}
+
+func (u *Keranjang) GetDataPesanan(c *gin.Context) {
+
+	response := models.Response{}
+	params := models.GetPesanan{}
+
+	err := c.ShouldBind(&params)
+
+	if err != nil {
+		var mess string
+		if err != nil {
+			mess = mess + err.Error()
+		}
+
+		response.ApiMessage = "validation " + mess
+		c.JSON(400, response)
+	} else {
+
+		data, err := u.daos.PesananGet(params)
+
+		if err != nil {
+			response.ApiStatus = 0
+			response.ApiMessage = err.Error()
+			c.JSON(500, response)
+		} else {
+			response.ApiStatus = 1
+			response.Data = data
+			response.ApiMessage = common.StatusSukses
+			c.JSON(http.StatusOK, response)
+
+		}
+
+	}
+
+
+}
+
 
 //
 //func (u *Produk) ProdukUpdate(c *gin.Context) {

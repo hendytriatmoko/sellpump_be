@@ -130,6 +130,15 @@ func main() {
 				rajaongkirEP.GET("/getsubdistrict", keranjang.GetDataRoSubdistrict)
 				rajaongkirEP.GET("/getcost", keranjang.GetDataRoCost)
 			}
+
+			pesananEP := v1.Group("pesanan")
+			{
+				authPesananEP := pesananEP.Group("")
+				authPesananEP.Use(middleware.Auth)
+
+				authPesananEP.POST("/create", keranjang.PesananCreate)
+				authPesananEP.GET("/getpesanan", keranjang.GetDataPesanan)
+			}
 		}
 
 	}

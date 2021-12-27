@@ -180,3 +180,54 @@ func (m *Keranjang) CostGet(params models.RajaOngkir) (string, error) {
 
 	return isi, nil
 }
+
+func (m *Keranjang) PesananCreate(params models.CreatePesanan) (models.CreatePesanan, error) {
+
+	pesanan := models.CreatePesanan{}
+
+	pesanan.IdPesanan = m.helper.StringWithCharset()
+	pesanan.NoInv = params.NoInv
+	pesanan.IdProduk = params.IdProduk
+	pesanan.IdUser = params.IdUser
+	pesanan.Kuantitas = params.Kuantitas
+	pesanan.Harga = params.Harga
+	pesanan.Berat = params.Berat
+	pesanan.CreatedAt = m.helper.GetTimeNow()
+
+	err := databases.DatabaseSellPump.DB.Table("pesanan").Create(&pesanan).Error
+
+	if err != nil {
+		return models.CreatePesanan{}, err
+	}
+
+	return pesanan, nil
+}
+
+func (m *Keranjang) PesananGet(params models.GetPesanan) ([]models.PesananGet, error) {
+
+	pesanan := []models.PesananGet{}
+
+	err := databases.DatabaseSellPump.DB.Table("pesanan").Select("pesanan.*,k.nama_produk,k.harga_produk,k.deskripsi_produk,k.gambar_produk,k.berat_produk").
+		Joins("join produk k on k.id_produk = pesanan.id_produk")
+
+	if params.IdUser != "" {
+		err = err.Where("pesanan.id_user = ?", params.IdUser)
+	}
+	if params.NoInv != "" {
+		err = err.Where("pesanan.no_inv = ?", params.NoInv)
+	}
+	if params.CreatedAt != "" {
+		err = err.Where("pesanan.created_at::text like  ?", "%"+params.CreatedAt+"%")
+	}
+
+	err = err.Find(&pesanan)
+
+	errx := err.Error
+
+
+	if errx != nil {
+		return []models.PesananGet{}, errx
+	}
+
+	return pesanan, nil
+}
