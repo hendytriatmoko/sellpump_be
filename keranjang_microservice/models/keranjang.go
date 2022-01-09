@@ -105,5 +105,6 @@ type CreateInvoice struct {
 	Etd                string `json:"etd" form:"etd"`
 	IdStatusPengiriman string `json:"id_status_pengiriman" form:"kuantitas"`
 	DetailAlamat       string `json:"detail_alamat" form:"detail_alamat"`
+	PesanPembeli       string `json:"pesan_pembeli" form:"pesan_pembeli"`
 	CreatedAt          string `json:"created_at" form:"created_at"`
 }

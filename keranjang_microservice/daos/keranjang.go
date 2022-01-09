@@ -247,6 +247,7 @@ func (m *Keranjang) InvoiceCreate(params models.CreateInvoice) (models.CreateInv
 	invoice.Etd = params.Etd
 	invoice.IdStatusPengiriman = params.IdStatusPengiriman
 	invoice.DetailAlamat = params.DetailAlamat
+	invoice.PesanPembeli = params.PesanPembeli
 	invoice.CreatedAt = m.helper.GetTimeNow()
 
 	err := databases.DatabaseSellPump.DB.Table("invoice").Create(&invoice).Error
