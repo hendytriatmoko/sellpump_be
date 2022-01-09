@@ -103,7 +103,7 @@ type CreateInvoice struct {
 	NamaEkspedisi      string `json:"nama_ekspedisi" form:"nama_ekspedisi"`
 	LayananEkspedisi   string `json:"layanan_ekspedisi" form:"layanan_ekspedisi"`
 	Etd                string `json:"etd" form:"etd"`
-	IdStatusPengiriman string `json:"id_status_pengiriman" form:"kuantitas"`
+	IdStatusPengiriman string `json:"id_status_pengiriman" form:"id_status_pengiriman"`
 	DetailAlamat       string `json:"detail_alamat" form:"detail_alamat"`
 	PesanPembeli       string `json:"pesan_pembeli" form:"pesan_pembeli"`
 	CreatedAt          string `json:"created_at" form:"created_at"`
