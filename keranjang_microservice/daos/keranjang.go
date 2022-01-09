@@ -32,7 +32,6 @@ func (m *Keranjang) KeranjangGet(params models.KeranjangGet) ([]models.Keranjang
 
 	errx := err.Error
 
-
 	if errx != nil {
 		return []models.KeranjangGet{}, errx
 	}
@@ -76,7 +75,6 @@ func (m *Keranjang) KeranjangDelete(params models.DeleteKeranjang) (models.Delet
 
 func (m *Keranjang) ProvinceGet(params models.RajaOngkir) (string, error) {
 
-
 	url := "https://pro.rajaongkir.com/api/province"
 
 	req, _ := http.NewRequest("GET", url, nil)
@@ -97,17 +95,17 @@ func (m *Keranjang) ProvinceGet(params models.RajaOngkir) (string, error) {
 func (m *Keranjang) CityGet(params models.RajaOngkir) (string, error) {
 
 	url := ""
-	if params.IdProvinsi == "" && params.IdCity == ""{
+	if params.IdProvinsi == "" && params.IdCity == "" {
 		url = "https://pro.rajaongkir.com/api/city"
 	}
-	if params.IdProvinsi != "" && params.IdCity == ""{
-		url = "https://pro.rajaongkir.com/api/city?province="+params.IdProvinsi
+	if params.IdProvinsi != "" && params.IdCity == "" {
+		url = "https://pro.rajaongkir.com/api/city?province=" + params.IdProvinsi
 	}
-	if params.IdProvinsi == "" && params.IdCity != ""{
-		url = "https://pro.rajaongkir.com/api/city?id="+params.IdCity
+	if params.IdProvinsi == "" && params.IdCity != "" {
+		url = "https://pro.rajaongkir.com/api/city?id=" + params.IdCity
 	}
-	if params.IdProvinsi != "" && params.IdCity != ""{
-		url = "https://pro.rajaongkir.com/api/city?id="+params.IdCity+"&province="+params.IdProvinsi
+	if params.IdProvinsi != "" && params.IdCity != "" {
+		url = "https://pro.rajaongkir.com/api/city?id=" + params.IdCity + "&province=" + params.IdProvinsi
 	}
 	req, _ := http.NewRequest("GET", url, nil)
 
@@ -121,8 +119,8 @@ func (m *Keranjang) CityGet(params models.RajaOngkir) (string, error) {
 
 	isi := string(body)
 
-	fmt.Println("city"+params.IdCity)
-	fmt.Println("province"+params.IdProvinsi)
+	fmt.Println("city" + params.IdCity)
+	fmt.Println("province" + params.IdProvinsi)
 
 	return isi, nil
 }
@@ -130,11 +128,11 @@ func (m *Keranjang) CityGet(params models.RajaOngkir) (string, error) {
 func (m *Keranjang) SubdistrictGet(params models.RajaOngkir) (string, error) {
 
 	url := ""
-	if params.IdCity != "" && params.IdKecamatan == ""{
-		url = "https://pro.rajaongkir.com/api/subdistrict?city="+params.IdCity
+	if params.IdCity != "" && params.IdKecamatan == "" {
+		url = "https://pro.rajaongkir.com/api/subdistrict?city=" + params.IdCity
 	}
-	if params.IdCity != "" && params.IdKecamatan != ""{
-		url = "https://pro.rajaongkir.com/api/subdistrict?city="+params.IdCity+"&id="+params.IdKecamatan
+	if params.IdCity != "" && params.IdKecamatan != "" {
+		url = "https://pro.rajaongkir.com/api/subdistrict?city=" + params.IdCity + "&id=" + params.IdKecamatan
 	}
 	req, _ := http.NewRequest("GET", url, nil)
 
@@ -148,8 +146,8 @@ func (m *Keranjang) SubdistrictGet(params models.RajaOngkir) (string, error) {
 
 	isi := string(body)
 
-	fmt.Println("city"+params.IdCity)
-	fmt.Println("province"+params.IdProvinsi)
+	fmt.Println("city" + params.IdCity)
+	fmt.Println("province" + params.IdProvinsi)
 
 	return isi, nil
 }
@@ -158,8 +156,8 @@ func (m *Keranjang) CostGet(params models.RajaOngkir) (string, error) {
 
 	url := "https://pro.rajaongkir.com/api/cost"
 
-	payload := strings.NewReader("origin="+params.Origin+"&originType=subdistrict"+
-		"&destination="+params.Destination+"&destinationType=subdistrict&weight="+params.Weight+
+	payload := strings.NewReader("origin=" + params.Origin + "&originType=subdistrict" +
+		"&destination=" + params.Destination + "&destinationType=subdistrict&weight=" + params.Weight +
 		"&courier=jne:tiki:pos")
 
 	req, _ := http.NewRequest("POST", url, payload)
@@ -175,8 +173,8 @@ func (m *Keranjang) CostGet(params models.RajaOngkir) (string, error) {
 
 	isi := string(body)
 
-	fmt.Println("city"+params.IdCity)
-	fmt.Println("province"+params.IdProvinsi)
+	fmt.Println("city" + params.IdCity)
+	fmt.Println("province" + params.IdProvinsi)
 
 	return isi, nil
 }
@@ -224,10 +222,38 @@ func (m *Keranjang) PesananGet(params models.GetPesanan) ([]models.PesananGet, e
 
 	errx := err.Error
 
-
 	if errx != nil {
 		return []models.PesananGet{}, errx
 	}
 
 	return pesanan, nil
+}
+
+func (m *Keranjang) InvoiceCreate(params models.CreateInvoice) (models.CreateInvoice, error) {
+
+	invoice := models.CreateInvoice{}
+
+	invoice.IdInvoice = m.helper.StringWithCharset()
+	invoice.NoInv = params.NoInv
+	invoice.IdUser = params.IdUser
+	invoice.Total = params.Total
+	invoice.Ppn = params.Ppn
+	invoice.NilaiPpn = params.NilaiPpn
+	invoice.OngkosKirim = params.OngkosKirim
+	invoice.JumlahPembayaran = params.JumlahPembayaran
+	invoice.IdStatusPembayaran = params.IdStatusPembayaran
+	invoice.NamaEkspedisi = params.NamaEkspedisi
+	invoice.LayananEkspedisi = params.LayananEkspedisi
+	invoice.Etd = params.Etd
+	invoice.IdStatusPengiriman = params.IdStatusPengiriman
+	invoice.DetailAlamat = params.DetailAlamat
+	invoice.CreatedAt = m.helper.GetTimeNow()
+
+	err := databases.DatabaseSellPump.DB.Table("invoice").Create(&invoice).Error
+
+	if err != nil {
+		return models.CreateInvoice{}, err
+	}
+
+	return invoice, nil
 }

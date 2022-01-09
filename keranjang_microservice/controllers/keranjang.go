@@ -81,7 +81,6 @@ func (u *Keranjang) GetDataKeranjang(c *gin.Context) {
 
 	}
 
-
 }
 
 func (u *Keranjang) KeranjangDelete(c *gin.Context) {
@@ -153,7 +152,6 @@ func (u *Keranjang) GetDataRoProvince(c *gin.Context) {
 
 	}
 
-
 }
 
 func (u *Keranjang) GetDataRoCity(c *gin.Context) {
@@ -188,7 +186,6 @@ func (u *Keranjang) GetDataRoCity(c *gin.Context) {
 		}
 
 	}
-
 
 }
 
@@ -225,7 +222,6 @@ func (u *Keranjang) GetDataRoSubdistrict(c *gin.Context) {
 
 	}
 
-
 }
 
 func (u *Keranjang) GetDataRoCost(c *gin.Context) {
@@ -260,7 +256,6 @@ func (u *Keranjang) GetDataRoCost(c *gin.Context) {
 		}
 
 	}
-
 
 }
 
@@ -333,9 +328,59 @@ func (u *Keranjang) GetDataPesanan(c *gin.Context) {
 
 	}
 
+}
+
+func (u *Keranjang) InvoiceCreate(c *gin.Context) {
+
+	params := models.CreateInvoice{}
+
+	response := models.Response{}
+
+	err := c.ShouldBind(&params)
+
+	if err != nil {
+		var mess string
+		if err != nil {
+			mess = mess + err.Error()
+		}
+
+		response.ApiMessage = "validation " + mess
+		c.JSON(400, response)
+	} else {
+
+		data, err := u.daos.InvoiceCreate(params)
+
+		if err != nil {
+			response.ApiStatus = 0
+			response.ApiMessage = err.Error()
+			c.JSON(500, response)
+		} else {
+			response.ApiStatus = 1
+			response.Data = data
+			response.ApiMessage = common.StatusSukses
+			c.JSON(http.StatusOK, response)
+
+		}
+
+	}
 
 }
 
+//func (u *Keranjang) GetHtml(w http.ResponseWriter, r *http.Request) {
+//	w.Header().Set("Content-Type", "text/html; charset=utf-8")
+//	t, err := template.ParseFiles("config/template.html")
+//	if err != nil {
+//		fmt.Fprintf(w, "Unable to load template")
+//	}
+//
+//	user := models.UserHtml{}
+//
+//	user.Id = 1
+//	user.Name = "John"
+//	user.Email = "jon@gmail.com"
+//	user.Phone = "08210821081"
+//	t.Execute(w, user)
+//}
 
 //
 //func (u *Produk) ProdukUpdate(c *gin.Context) {

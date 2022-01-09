@@ -42,7 +42,6 @@ func (m *Main) initServer() error {
 		return err
 	}
 
-
 	// Setting Gin Logger
 	if common.Config.EnableGinFileLog {
 		f, err := os.OpenFile("logs/gin.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
@@ -138,6 +137,13 @@ func main() {
 
 				authPesananEP.POST("/create", keranjang.PesananCreate)
 				authPesananEP.GET("/getpesanan", keranjang.GetDataPesanan)
+			}
+			invoiceEP := v1.Group("invoice")
+			{
+				authInvoiceEP := invoiceEP.Group("")
+				authInvoiceEP.Use(middleware.Auth)
+
+				authInvoiceEP.POST("/create", keranjang.InvoiceCreate)
 			}
 		}
 
