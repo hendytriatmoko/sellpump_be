@@ -7,7 +7,9 @@ import (
 	"keranjang_microservice/helper"
 	"keranjang_microservice/models"
 	"net/http"
+	"os"
 	_ "os"
+	"path/filepath"
 	_ "path/filepath"
 	"strings"
 	_ "strings"
@@ -295,4 +297,52 @@ func (m *Keranjang) InvoiceGet(params models.GetInvoice) ([]models.InvoiceGet, e
 	}
 
 	return invoice, nil
+}
+
+func (m *Keranjang) InvoiceUpdate(params models.UpdateInvoice) ([]models.InvoiceGet, error) {
+
+	invoice := models.InvoiceUpdate{}
+	getinvoice := []models.InvoiceGet{}
+
+	if params.BuktiBayar != nil {
+		invoice.TglPembayaran = m.helper.GetTimeNow()
+		path := "/keranjang/"
+		pathImage := "./files/"+path
+		ext := filepath.Ext(params.BuktiBayar.Filename)
+		filename := strings.Replace(params.IdInvoice," ","_", -1)+"-Pembayaran"+ext
+
+		os.MkdirAll(pathImage, 0777)
+		errx := m.helper.SaveUploadedFile(params.BuktiBayar, pathImage+filename)
+		if errx != nil{
+			return []models.InvoiceGet{},errx
+		}
+
+		url := string(filepath.FromSlash(path+filename))
+
+		invoice.BuktiBayar = new(string)
+		*invoice.BuktiBayar = url
+	}
+
+	invoice.UpdatedAt = m.helper.GetTimeNow()
+	invoice.AlasanDitolak = params.AlasanDitolak
+	invoice.ExpiredPengiriman = params.ExpiredPengiriman
+	invoice.IdStatusPengiriman = params.IdStatusPengiriman
+	invoice.IdStatusPembayaran = params.IdStatusPembayaran
+	invoice.NoPo = params.NoResi
+	invoice.NoResi = params.NoResi
+
+	err := databases.DatabaseSellPump.DB.Table("invoice").Where("id_invoice = ?", params.IdInvoice).Update(&invoice).Error
+
+	if err != nil {
+		return []models.InvoiceGet{}, err
+	}
+
+	paraminvoice := models.GetInvoice{}
+	paraminvoice.NoInv = params.NoInv
+	getinvoice,errx := m.InvoiceGet(paraminvoice)
+	if errx != nil {
+		return []models.InvoiceGet{}, errx
+	}
+	return getinvoice, nil
+
 }

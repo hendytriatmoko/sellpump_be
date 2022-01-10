@@ -145,6 +145,7 @@ func main() {
 
 				authInvoiceEP.POST("/create", keranjang.InvoiceCreate)
 				authInvoiceEP.GET("/getinvoice", keranjang.GetDataInvoice)
+				authInvoiceEP.PUT("/update", keranjang.InvoiceUpdate)
 			}
 		}
 

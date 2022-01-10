@@ -1,5 +1,7 @@
 package models
 
+import "mime/multipart"
+
 type GetKeranjang struct {
 	IdUser   string `json:"id_user" form:"id_user"`
 	Email    string `json:"email" form:"email"`
@@ -141,5 +143,32 @@ type InvoiceGet struct {
 	PesanPembeli       string `json:"pesan_pembeli" form:"pesan_pembeli"`
 	Pesanan		       []PesananGet `json:"pesanan" form:"pesanan"`
 	CreatedAt          string `json:"created_at" form:"created_at"`
+	UpdatedAt          string `json:"updated_at" form:"updated_at"`
+}
+
+type UpdateInvoice struct {
+	IdInvoice          string `json:"id_invoice" form:"id_invoice"`
+	NoInv              string `json:"no_inv" form:"no_inv"`
+	AlasanDitolak		string `json:"alasan_ditolak" form:"alasan_ditolak"`
+	BuktiBayar      	*multipart.FileHeader `json:"bukti_bayar" form:"bukti_bayar"`
+	ExpiredPengiriman	string `json:"expired_pengiriman" form:"expired_pengiriman"`
+	IdStatusPembayaran string `json:"id_status_pembayaran" form:"id_status_pembayaran"`
+	IdStatusPengiriman string `json:"id_status_pengiriman" form:"id_status_pengiriman"`
+	NoPo              string `json:"no_po" form:"no_po"`
+	NoResi             string `json:"no_resi" form:"no_resi"`
+	TglPembayaran	   string `json:"tgl_pembayaran" form:"tgl_pembayaran"`
+	UpdatedAt          string `json:"updated_at" form:"updated_at"`
+}
+type InvoiceUpdate struct {
+	IdInvoice          string `json:"id_invoice" form:"id_invoice"`
+	NoInv              string `json:"no_inv" form:"no_inv"`
+	AlasanDitolak		string `json:"alasan_ditolak" form:"alasan_ditolak"`
+	BuktiBayar      	*string `json:"bukti_bayar" form:"bukti_bayar"`
+	ExpiredPengiriman	string `json:"expired_pengiriman" form:"expired_pengiriman"`
+	IdStatusPembayaran string `json:"id_status_pembayaran" form:"id_status_pembayaran"`
+	IdStatusPengiriman string `json:"id_status_pengiriman" form:"id_status_pengiriman"`
+	NoPo              string `json:"no_po" form:"no_po"`
+	NoResi             string `json:"no_resi" form:"no_resi"`
+	TglPembayaran	   string `json:"tgl_pembayaran" form:"tgl_pembayaran"`
 	UpdatedAt          string `json:"updated_at" form:"updated_at"`
 }
