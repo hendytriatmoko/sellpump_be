@@ -267,13 +267,13 @@ func (m *Keranjang) InvoiceGet(params models.GetInvoice) ([]models.InvoiceGet, e
 	err := databases.DatabaseSellPump.DB.Table("invoice")
 
 	if params.IdUser != "" {
-		err = err.Where("pesanan.id_user = ?", params.IdUser)
+		err = err.Where("id_user = ?", params.IdUser)
 	}
 	if params.NoInv != "" {
-		err = err.Where("pesanan.no_inv = ?", params.NoInv)
+		err = err.Where("no_inv = ?", params.NoInv)
 	}
 	if params.CreatedAt != "" {
-		err = err.Where("pesanan.created_at::text like  ?", "%"+params.CreatedAt+"%")
+		err = err.Where("created_at::text like  ?", "%"+params.CreatedAt+"%")
 	}
 
 	err = err.Find(&invoice)
