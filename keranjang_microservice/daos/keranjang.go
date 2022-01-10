@@ -258,3 +258,41 @@ func (m *Keranjang) InvoiceCreate(params models.CreateInvoice) (models.CreateInv
 
 	return invoice, nil
 }
+
+func (m *Keranjang) InvoiceGet(params models.GetInvoice) ([]models.InvoiceGet, error) {
+
+	invoice := []models.InvoiceGet{}
+	getPesanan := models.GetPesanan{}
+
+	err := databases.DatabaseSellPump.DB.Table("invoice")
+
+	if params.IdUser != "" {
+		err = err.Where("pesanan.id_user = ?", params.IdUser)
+	}
+	if params.NoInv != "" {
+		err = err.Where("pesanan.no_inv = ?", params.NoInv)
+	}
+	if params.CreatedAt != "" {
+		err = err.Where("pesanan.created_at::text like  ?", "%"+params.CreatedAt+"%")
+	}
+
+	err = err.Find(&invoice)
+	errx := err.Error
+
+	if errx != nil {
+		return []models.InvoiceGet{}, errx
+	}
+
+	for i, _ := range invoice {
+
+		getPesanan.NoInv = invoice[i].NoInv
+		invoice[i].Pesanan, errx = m.PesananGet(getPesanan)
+
+		if errx != nil {
+			return []models.InvoiceGet{}, errx
+		}
+
+	}
+
+	return invoice, nil
+}

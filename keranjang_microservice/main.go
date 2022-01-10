@@ -144,6 +144,7 @@ func main() {
 				authInvoiceEP.Use(middleware.Auth)
 
 				authInvoiceEP.POST("/create", keranjang.InvoiceCreate)
+				authInvoiceEP.GET("/getinvoice", keranjang.GetDataInvoice)
 			}
 		}
 

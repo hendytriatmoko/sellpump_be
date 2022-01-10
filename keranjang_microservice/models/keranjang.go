@@ -108,3 +108,38 @@ type CreateInvoice struct {
 	PesanPembeli       string `json:"pesan_pembeli" form:"pesan_pembeli"`
 	CreatedAt          string `json:"created_at" form:"created_at"`
 }
+
+type GetInvoice struct {
+	IdUser    string `json:"id_user" form:"id_user"`
+	NoInv     string `json:"no_inv" form:"no_inv"`
+	IdStatusPengiriman string `json:"id_status_pengiriman" form:"id_status_pengiriman"`
+	IdStatusPembayaran string `json:"id_status_pembayaran" form:"id_status_pembayaran"`
+	CreatedAt          string `json:"created_at" form:"created_at"`
+}
+
+type InvoiceGet struct {
+	IdInvoice          string `json:"id_invoice" form:"id_invoice"`
+	NoInv              string `json:"no_inv" form:"no_inv"`
+	NoPo              string `json:"no_po" form:"no_po"`
+	IdUser             string `json:"id_user" form:"id_user"`
+	Ppn                string `json:"ppn" form:"ppn"`
+	NilaiPpn           string `json:"nilai_ppn" form:"nilai_ppn"`
+	Total              string `json:"total" form:"total"`
+	JumlahPembayaran   string `json:"jumlah_pembayaran" form:"jumlah_pembayaran"`
+	BuktiBayar		   string `json:"bukti_bayar" form:"bukti_bayar"`
+	TglPembayaran	   string `json:"tgl_pembayaran" form:"tgl_pembayaran"`
+	IdStatusPembayaran string `json:"id_status_pembayaran" form:"id_status_pembayaran"`
+	AlasanDitolak		string `json:"alasan_ditolak" form:"alasan_ditolak"`
+	OngkosKirim        string `json:"ongkos_kirim" form:"ongkos_kirim"`
+	NamaEkspedisi      string `json:"nama_ekspedisi" form:"nama_ekspedisi"`
+	LayananEkspedisi   string `json:"layanan_ekspedisi" form:"layanan_ekspedisi"`
+	Etd                string `json:"etd" form:"etd"`
+	NoResi             string `json:"no_resi" form:"no_resi"`
+	IdStatusPengiriman string `json:"id_status_pengiriman" form:"id_status_pengiriman"`
+	ExpiredPengiriman	string `json:"expired_pengiriman" form:"expired_pengiriman"`
+	DetailAlamat       string `json:"detail_alamat" form:"detail_alamat"`
+	PesanPembeli       string `json:"pesan_pembeli" form:"pesan_pembeli"`
+	Pesanan		       []PesananGet `json:"pesanan" form:"pesanan"`
+	CreatedAt          string `json:"created_at" form:"created_at"`
+	UpdatedAt          string `json:"updated_at" form:"updated_at"`
+}
