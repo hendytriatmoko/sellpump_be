@@ -122,6 +122,16 @@ func main() {
 				authUserEP.PUT("/update", produk.ProdukUpdate)
 				authUserEP.DELETE("/delete", produk.ProdukDelete)
 			}
+			artikelEP := v1.Group("artikel")
+			{
+				authArtikelEP := artikelEP.Group("")
+				authArtikelEP.Use(middleware.Auth)
+
+				artikelEP.GET("/getartikel", produk.GetDataArtikel)
+				authArtikelEP.POST("/create", produk.ArtikelCreate)
+				authArtikelEP.PUT("/update", produk.ArtikelUpdate)
+				authArtikelEP.DELETE("/delete", produk.ArtikelDelete)
+			}
 		}
 
 	}

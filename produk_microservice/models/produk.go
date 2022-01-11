@@ -90,11 +90,56 @@ type ProdukGet struct {
 	DeletedAt        	string `json:"deleted_at" form:"deleted_at"`
 }
 
-
-
-
-
 type DeleteProduk struct {
 	IdProduk   string `json:"id_produk" form:"id_produk"`
 	DeletedAt  string `json:"deleted_at" form:"deleted_at"`
+}
+
+type CreateArtikel struct {
+	JudulArtikel      	string `json:"judul_artikel" form:"judul_artikel"`
+	GambarArtikel    	*multipart.FileHeader `json:"gambar_artikel" form:"gambar_artikel"`
+	DeskripsiArtikel    string `json:"deskripsi_artikel" form:"deskripsi_artikel"`
+	CreatedAt        	string `json:"created_at" form:"created_at"`
+}
+
+type ArtikelCreate struct {
+	IdArtikel			string `json:"id_artikel" form:"id_artikel"`
+	JudulArtikel      	string `json:"judul_artikel" form:"judul_artikel"`
+	GambarArtikel    	string `json:"gambar_artikel" form:"gambar_artikel"`
+	DeskripsiArtikel    string `json:"deskripsi_artikel" form:"deskripsi_artikel"`
+	CreatedAt        	string `json:"created_at" form:"created_at"`
+}
+
+type GetArtikel struct {
+	IdArtikel			string `json:"id_artikel" form:"id_artikel"`
+	Search       		string `json:"search" form:"search"`
+}
+
+type ArtikelGet struct {
+	IdArtikel			string `json:"id_artikel" form:"id_artikel"`
+	JudulArtikel      	string `json:"judul_artikel" form:"judul_artikel"`
+	GambarArtikel    	string `json:"gambar_artikel" form:"gambar_artikel"`
+	DeskripsiArtikel    string `json:"deskripsi_artikel" form:"deskripsi_artikel"`
+	CreatedAt        	string `json:"created_at" form:"created_at"`
+	UpdatedAt        	string `json:"updated_at" form:"updated_at"`
+	DeletedAt        	string `json:"deleted_at" form:"deleted_at"`
+}
+
+type DeleteArtikel struct {
+	IdArtikel			string `json:"id_artikel" form:"id_artikel"`
+	DeletedAt        	string `json:"deleted_at" form:"deleted_at"`
+}
+
+type UpdateArtikel struct {
+	IdArtikel			string `json:"id_artikel" form:"id_artikel"`
+	JudulArtikel      	string `json:"judul_artikel" form:"judul_artikel"`
+	GambarArtikel    	*multipart.FileHeader `json:"gambar_artikel" form:"gambar_artikel"`
+	DeskripsiArtikel    string `json:"deskripsi_artikel" form:"deskripsi_artikel"`
+}
+type ArtikelUpdate struct {
+	IdArtikel			string `json:"id_artikel" form:"id_artikel"`
+	JudulArtikel      	string `json:"judul_artikel" form:"judul_artikel"`
+	GambarArtikel    	*string `json:"gambar_artikel" form:"gambar_artikel"`
+	DeskripsiArtikel    string `json:"deskripsi_artikel" form:"deskripsi_artikel"`
+	UpdatedAt        	string `json:"updated_at" form:"updated_at"`
 }

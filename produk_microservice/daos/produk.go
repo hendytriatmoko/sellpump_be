@@ -154,3 +154,124 @@ func (m *Produk) ProdukDelete(params models.DeleteProduk) (models.DeleteProduk, 
 	return produk, nil
 
 }
+
+func (m *Produk) ArtikelCreate(params models.CreateArtikel) (models.ArtikelCreate, error) {
+
+	artikel := models.ArtikelCreate{}
+
+	path := "/artikel/"
+	pathImage := "./files/"+path
+	ext := filepath.Ext(params.GambarArtikel.Filename)
+	filename := strings.Replace(params.JudulArtikel," ","_", -1)+ext
+
+	os.MkdirAll(pathImage, 0777)
+	errx := m.helper.SaveUploadedFile(params.GambarArtikel, pathImage+filename)
+	if errx != nil{
+		return models.ArtikelCreate{},errx
+	}
+
+	url := string(filepath.FromSlash(path+filename))
+
+	artikel.IdArtikel = m.helper.StringWithCharset()
+	artikel.JudulArtikel = params.JudulArtikel
+	artikel.DeskripsiArtikel = params.DeskripsiArtikel
+	artikel.GambarArtikel = url
+	artikel.CreatedAt = m.helper.GetTimeNow()
+
+
+	err := databases.DatabaseSellPump.DB.Table("artikel").Create(&artikel).Error
+
+	if err != nil {
+		return models.ArtikelCreate{}, err
+	}
+
+	return artikel, nil
+}
+
+func (m *Produk) ArtikelGet(params models.GetArtikel) ([]models.ArtikelGet, error) {
+
+	artikel := []models.ArtikelGet{}
+
+	err := databases.DatabaseSellPump.DB.Table("artikel")
+
+	if params.IdArtikel != "" {
+		err = err.Where("id_artikel = ?", params.IdArtikel)
+	}
+	if params.Search != "" {
+		err = err.Where("judul_artikel ilike '%"+params.Search+"%'")
+	}
+
+	err = err.Find(&artikel)
+
+	errx := err.Error
+
+
+	if errx != nil {
+		return []models.ArtikelGet{}, errx
+	}
+
+	return artikel, nil
+}
+
+func (m *Produk) ArtikelUpdate(params models.UpdateArtikel) ([]models.ArtikelGet, error) {
+
+	artikel := models.ArtikelUpdate{}
+	getartikel := []models.ArtikelGet{}
+
+	if params.GambarArtikel != nil {
+		path := "/artikel/"
+		pathImage := "./files/"+path
+		ext := filepath.Ext(params.GambarArtikel.Filename)
+		filename := strings.Replace(params.JudulArtikel," ","_", -1)+ext
+
+		os.MkdirAll(pathImage, 0777)
+		errx := m.helper.SaveUploadedFile(params.GambarArtikel, pathImage+filename)
+		if errx != nil{
+			return []models.ArtikelGet{},errx
+		}
+
+		url := string(filepath.FromSlash(path+filename))
+
+		artikel.GambarArtikel = new(string)
+		*artikel.GambarArtikel = url
+	}
+
+	artikel.UpdatedAt = m.helper.GetTimeNow()
+	//if params.NamaProduk != "" {
+	//	produk.NamaProduk = new(string)
+	//	*produk.NamaProduk = params.NamaProduk
+	//}
+	artikel.JudulArtikel = params.JudulArtikel
+	artikel.DeskripsiArtikel = params.DeskripsiArtikel
+
+	err := databases.DatabaseSellPump.DB.Table("artikel").Where("id_artikel = ?", params.IdArtikel).Update(&artikel).Error
+
+	if err != nil {
+		return []models.ArtikelGet{}, err
+	}
+
+	paramartikel := models.GetArtikel{}
+	paramartikel.IdArtikel = params.IdArtikel
+	getartikel,errx := m.ArtikelGet(paramartikel)
+	if errx != nil {
+		return []models.ArtikelGet{}, errx
+	}
+	return getartikel, nil
+
+}
+
+func (m *Produk) ArtikelDelete(params models.DeleteArtikel) (models.DeleteArtikel, error) {
+
+	artikel := models.DeleteArtikel{}
+
+	artikel.DeletedAt = m.helper.GetTimeNow()
+
+	err := databases.DatabaseSellPump.DB.Table("artikel").Where("id_artikel = ?", params.IdArtikel).Update(&artikel).Error
+
+	if err != nil {
+		return models.DeleteArtikel{}, err
+	}
+
+	return artikel, nil
+
+}
