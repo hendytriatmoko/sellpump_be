@@ -14,6 +14,8 @@ type CreateProduk struct {
 	DeskripsiProduk 	string `json:"deskripsi_produk" form:"deskripsi_produk"`
 	StokProduk      	int `json:"stok_produk" form:"stok_produk"`
 	IdKategoriProduk    string `json:"id_kategori_produk" form:"id_kategori_produk"`
+	LinkTokopedia  		string `json:"link_tokopedia" form:"link_tokopedia"`
+	LinkBukalapak	    string `json:"link_bukalapak" form:"link_bukalapak"`
 	GambarProduk      	*multipart.FileHeader `json:"gambar_produk" form:"gambar_produk"`
 	CreatedAt        	string `json:"created_at" form:"created_at"`
 }
@@ -29,6 +31,8 @@ type ProdukCreate struct {
 	StokProduk      	int `json:"stok_produk" form:"stok_produk"`
 	Tayangan      		int `json:"tayangan" form:"tayangan"`
 	IdKategoriProduk    string `json:"id_kategori_produk" form:"id_kategori_produk"`
+	LinkTokopedia  		string `json:"link_tokopedia" form:"link_tokopedia"`
+	LinkBukalapak	    string `json:"link_bukalapak" form:"link_bukalapak"`
 	GambarProduk      	string `json:"gambar_produk" form:"gambar_produk"`
 	CreatedAt        	string `json:"created_at" form:"created_at"`
 }
@@ -45,6 +49,8 @@ type UpdateProduk struct {
 	Tayangan      		int `json:"tayangan" form:"tayangan"`
 	IdKategoriProduk    string `json:"id_kategori_produk" form:"id_kategori_produk"`
 	GambarProduk      	*multipart.FileHeader `json:"gambar_produk" form:"gambar_produk"`
+	LinkTokopedia  		string `json:"link_tokopedia" form:"link_tokopedia"`
+	LinkBukalapak	    string `json:"link_bukalapak" form:"link_bukalapak"`
 }
 type ProdukUpdate struct {
 	IdProduk			string `json:"id_produk" form:"id_produk"`
@@ -59,6 +65,8 @@ type ProdukUpdate struct {
 	Tayangan      		int `json:"tayangan" form:"tayangan"`
 	IdKategoriProduk    string `json:"id_kategori_produk" form:"id_kategori_produk"`
 	GambarProduk      	*string `json:"gambar_produk" form:"gambar_produk"`
+	LinkTokopedia  		string `json:"link_tokopedia" form:"link_tokopedia"`
+	LinkBukalapak	    string `json:"link_bukalapak" form:"link_bukalapak"`
 	UpdatedAt        	string `json:"updated_at" form:"updated_at"`
 }
 
@@ -88,6 +96,8 @@ type ProdukGet struct {
 	Kategori    		string `json:"kategori" form:"kategori"`
 	SubKategori	    	string `json:"sub_kategori" form:"sub_kategori"`
 	GambarProduk      	string `json:"gambar_produk" form:"gambar_produk"`
+	LinkTokopedia  		string `json:"link_tokopedia" form:"link_tokopedia"`
+	LinkBukalapak	    string `json:"link_bukalapak" form:"link_bukalapak"`
 	CreatedAt        	string `json:"created_at" form:"created_at"`
 	UpdatedAt        	string `json:"updated_at" form:"updated_at"`
 	DeletedAt        	string `json:"deleted_at" form:"deleted_at"`

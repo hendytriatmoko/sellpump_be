@@ -45,6 +45,8 @@ func (m *Produk) ProdukCreate(params models.CreateProduk) (models.ProdukCreate, 
 	insertproduk.Tayangan = 0
 	insertproduk.IdKategoriProduk = params.IdKategoriProduk
 	insertproduk.GambarProduk = url
+	insertproduk.LinkTokopedia = params.LinkTokopedia
+	insertproduk.LinkBukalapak = params.LinkBukalapak
 	insertproduk.CreatedAt = m.helper.GetTimeNow()
 
 	err := databases.DatabaseSellPump.DB.Table("produk").Create(&insertproduk).Error
@@ -94,6 +96,8 @@ func (m *Produk) ProdukUpdate(params models.UpdateProduk) ([]models.ProdukGet, e
 	produk.DeskripsiProduk = params.DeskripsiProduk
 	produk.StokProduk = params.StokProduk
 	produk.Tayangan = params.Tayangan
+	produk.LinkTokopedia = params.LinkTokopedia
+	produk.LinkBukalapak = params.LinkBukalapak
 	produk.IdKategoriProduk = params.IdKategoriProduk
 
 	err := databases.DatabaseSellPump.DB.Table("produk").Where("id_produk = ?", params.IdProduk).Update(&produk).Error
@@ -124,7 +128,7 @@ func (m *Produk) ProdukGet(params models.GetProduk) ([]models.ProdukGet, error) 
 		err = err.Where("produk.id_produk = ?", params.IdProduk)
 	}
 	if params.Search != "" {
-		err = err.Where("produk.nama_produk ilike '%"+params.Search+"%' OR produk.kode_produk ilike '%"+params.Search+"%' OR produk.tipe_produk ilike '%"+params.Search+"%' OR merk.nama_merk ilike '%"+params.Search+"%'")
+		err = err.Where("produk.nama_produk ilike '%"+params.Search+"%' OR produk.kode_produk ilike '%"+params.Search+"%' OR produk.tipe_produk ilike '%"+params.Search+"%' OR m.nama_merk ilike '%"+params.Search+"%'")
 	}
 	if params.SubKategori != "" {
 		err = err.Where("k.sub_kategori = ?", params.SubKategori)
