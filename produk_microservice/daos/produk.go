@@ -126,6 +126,15 @@ func (m *Produk) ProdukGet(params models.GetProduk) ([]models.ProdukGet, error) 
 	if params.Search != "" {
 		err = err.Where("produk.nama_produk ilike '%"+params.Search+"%' OR produk.kode_produk ilike '%"+params.Search+"%' OR produk.tipe_produk ilike '%"+params.Search+"%' OR merk.nama_merk ilike '%"+params.Search+"%'")
 	}
+	if params.SubKategori != "" {
+		err = err.Where("k.sub_kategori = ?", params.SubKategori)
+	}
+	if params.Limit != nil {
+		err = err.Limit(*params.Limit)
+	}
+	if params.Offset != nil {
+		err = err.Offset(*params.Offset)
+	}
 
 	err = err.Find(&produk)
 
@@ -199,6 +208,12 @@ func (m *Produk) ArtikelGet(params models.GetArtikel) ([]models.ArtikelGet, erro
 	}
 	if params.Search != "" {
 		err = err.Where("judul_artikel ilike '%"+params.Search+"%'")
+	}
+	if params.Limit != nil {
+		err = err.Limit(*params.Limit)
+	}
+	if params.Offset != nil {
+		err = err.Offset(*params.Offset)
 	}
 
 	err = err.Find(&artikel)

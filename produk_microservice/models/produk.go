@@ -65,6 +65,9 @@ type ProdukUpdate struct {
 type GetProduk struct {
 	IdProduk       		string `json:"id_produk" form:"id_produk"`
 	Search       		string `json:"search" form:"search"`
+	SubKategori	    	string `json:"sub_kategori" form:"sub_kategori"`
+	Limit     			*int64 `json:"limit" form:"limit"`
+	Offset    			*int64 `json:"offset" form:"offset"`
 }
 
 
@@ -113,6 +116,8 @@ type ArtikelCreate struct {
 type GetArtikel struct {
 	IdArtikel			string `json:"id_artikel" form:"id_artikel"`
 	Search       		string `json:"search" form:"search"`
+	Limit     			*int64 `json:"limit" form:"limit"`
+	Offset    			*int64 `json:"offset" form:"offset"`
 }
 
 type ArtikelGet struct {
