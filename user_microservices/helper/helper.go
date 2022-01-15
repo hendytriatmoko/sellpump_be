@@ -111,17 +111,17 @@ func (u *Helper) StringWithCharset() string {
 	return string(b)
 }
 
-func (u *Helper) SendEmailVerifikasi(email string, id_user string, id_verifikasi string) error {
+func (u *Helper) SendEmailVerifikasi(email string, id_user string, token_register string) error {
 
 	auth = smtp.PlainAuth("", common.Config.EMAIL, common.Config.PASSWORD, common.Config.SMTP_HOST)
 	templateData := struct {
 		Email   		string
 		IdUser			string
-		IdVerifikasi 	string
+		TokenRegister 	string
 	}{
 		Email:     email,
 		IdUser: id_user,
-		IdVerifikasi: id_verifikasi,
+		TokenRegister: token_register,
 	}
 	r := NewRequest([]string{email}, "Verifikasi Email", "Hello, World!")
 	//err := r.ParseTemplate("helper/email_invitation.html", templateData)
@@ -137,13 +137,17 @@ func (u *Helper) SendEmailVerifikasi(email string, id_user string, id_verifikasi
 	return error(nil)
 }
 
-func (u *Helper) SendForgotPassword(email string) error {
+func (u *Helper) SendForgotPassword(email string, id_user string, token_repassword string) error {
 
 	auth = smtp.PlainAuth("", common.Config.EMAIL, common.Config.PASSWORD, common.Config.SMTP_HOST)
 	templateData := struct {
+		IdUser			string
 		Email   		string
+		TokenRepassword	string
 	}{
+		IdUser:     id_user,
 		Email:     email,
+		TokenRepassword:     token_repassword,
 	}
 	r := NewRequest([]string{email}, "Forgot Password!", "Hello, World!")
 	//err := r.ParseTemplate("helper/email_invitation.html", templateData)

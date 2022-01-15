@@ -2078,3 +2078,277 @@ Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :2201
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/user/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/user/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/user/v1/user/getuser --> user_microservices/controllers.(*User).GetDataUser-fm (6 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/create --> user_microservices/controllers.(*User).UserCreate-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/check --> user_microservices/controllers.(*User).UserCheckAkun-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/signin --> user_microservices/controllers.(*User).Signin-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/resend_verification --> user_microservices/controllers.(*User).UserResendVerification-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/forgot_password --> user_microservices/controllers.(*User).UserForgotPassword-fm (5 handlers)
+[GIN-debug] PUT    /sellpump/api/user/v1/user/update --> user_microservices/controllers.(*User).UserUpdate-fm (5 handlers)
+[GIN-debug] DELETE /sellpump/api/user/v1/user/delete --> user_microservices/controllers.(*User).UserDelete-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/profil/create --> user_microservices/controllers.(*User).ProfilCreate-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/user/v1/profil/getprofil --> user_microservices/controllers.(*User).GetDataProfil-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2201
+[GIN] 2022/01/15 - 10:19:03 | 200 |    149.3347ms |             ::1 | POST     "/sellpump/api/user/v1/user/check"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/user/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/user/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/user/v1/user/getuser --> user_microservices/controllers.(*User).GetDataUser-fm (6 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/create --> user_microservices/controllers.(*User).UserCreate-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/check --> user_microservices/controllers.(*User).UserCheckAkun-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/signin --> user_microservices/controllers.(*User).Signin-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/resend_verification --> user_microservices/controllers.(*User).UserResendVerification-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/forgot_password --> user_microservices/controllers.(*User).UserForgotPassword-fm (5 handlers)
+[GIN-debug] PUT    /sellpump/api/user/v1/user/update --> user_microservices/controllers.(*User).UserUpdate-fm (5 handlers)
+[GIN-debug] DELETE /sellpump/api/user/v1/user/delete --> user_microservices/controllers.(*User).UserDelete-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/profil/create --> user_microservices/controllers.(*User).ProfilCreate-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/user/v1/profil/getprofil --> user_microservices/controllers.(*User).GetDataProfil-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2201
+[GIN] 2022/01/15 - 10:39:20 | 500 |    3.9036337s |             ::1 | POST     "/sellpump/api/user/v1/user/create?nama=andrian%20riyan&no_telp=081319201213&email=hendytriatmoko0@gmail.com&password=35536298"
+[GIN] 2022/01/15 - 10:40:05 | 500 |    3.6230155s |             ::1 | POST     "/sellpump/api/user/v1/user/create"
+[GIN] 2022/01/15 - 10:46:11 | 200 |    5.1741356s |             ::1 | POST     "/sellpump/api/user/v1/user/create"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/user/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/user/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/user/v1/user/getuser --> user_microservices/controllers.(*User).GetDataUser-fm (6 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/create --> user_microservices/controllers.(*User).UserCreate-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/check --> user_microservices/controllers.(*User).UserCheckAkun-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/signin --> user_microservices/controllers.(*User).Signin-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/resend_verification --> user_microservices/controllers.(*User).UserResendVerification-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/forgot_password --> user_microservices/controllers.(*User).UserForgotPassword-fm (5 handlers)
+[GIN-debug] PUT    /sellpump/api/user/v1/user/update --> user_microservices/controllers.(*User).UserUpdate-fm (5 handlers)
+[GIN-debug] DELETE /sellpump/api/user/v1/user/delete --> user_microservices/controllers.(*User).UserDelete-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/profil/create --> user_microservices/controllers.(*User).ProfilCreate-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/user/v1/profil/getprofil --> user_microservices/controllers.(*User).GetDataProfil-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2201
+[GIN] 2022/01/15 - 10:58:00 | 200 |     4.888822s |             ::1 | POST     "/sellpump/api/user/v1/user/resend_verification"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/user/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/user/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/user/v1/user/getuser --> user_microservices/controllers.(*User).GetDataUser-fm (6 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/create --> user_microservices/controllers.(*User).UserCreate-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/check --> user_microservices/controllers.(*User).UserCheckAkun-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/signin --> user_microservices/controllers.(*User).Signin-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/resend_verification --> user_microservices/controllers.(*User).UserResendVerification-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/forgot_password --> user_microservices/controllers.(*User).UserForgotPassword-fm (5 handlers)
+[GIN-debug] PUT    /sellpump/api/user/v1/user/update --> user_microservices/controllers.(*User).UserUpdate-fm (5 handlers)
+[GIN-debug] DELETE /sellpump/api/user/v1/user/delete --> user_microservices/controllers.(*User).UserDelete-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/profil/create --> user_microservices/controllers.(*User).ProfilCreate-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/user/v1/profil/getprofil --> user_microservices/controllers.(*User).GetDataProfil-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2201
+[GIN] 2022/01/15 - 11:05:47 | 200 |    4.7360988s |             ::1 | POST     "/sellpump/api/user/v1/user/resend_verification"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/user/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/user/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/user/v1/user/getuser --> user_microservices/controllers.(*User).GetDataUser-fm (6 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/create --> user_microservices/controllers.(*User).UserCreate-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/check --> user_microservices/controllers.(*User).UserCheckAkun-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/signin --> user_microservices/controllers.(*User).Signin-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/resend_verification --> user_microservices/controllers.(*User).UserResendVerification-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/verifikasi_register --> user_microservices/controllers.(*User).UserVerificationRegister-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/forgot_password --> user_microservices/controllers.(*User).UserForgotPassword-fm (5 handlers)
+[GIN-debug] PUT    /sellpump/api/user/v1/user/update --> user_microservices/controllers.(*User).UserUpdate-fm (5 handlers)
+[GIN-debug] DELETE /sellpump/api/user/v1/user/delete --> user_microservices/controllers.(*User).UserDelete-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/profil/create --> user_microservices/controllers.(*User).ProfilCreate-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/user/v1/profil/getprofil --> user_microservices/controllers.(*User).GetDataProfil-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2201
+[GIN] 2022/01/15 - 11:32:23 | 200 |    409.4388ms |             ::1 | POST     "/sellpump/api/user/v1/user/verifikasi_register"
+[GIN] 2022/01/15 - 11:34:13 | 200 |    407.7653ms |             ::1 | POST     "/sellpump/api/user/v1/user/verifikasi_register"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/user/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/user/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/user/v1/user/getuser --> user_microservices/controllers.(*User).GetDataUser-fm (6 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/create --> user_microservices/controllers.(*User).UserCreate-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/check --> user_microservices/controllers.(*User).UserCheckAkun-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/signin --> user_microservices/controllers.(*User).Signin-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/resend_verification --> user_microservices/controllers.(*User).UserResendVerification-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/verifikasi_register --> user_microservices/controllers.(*User).UserVerificationRegister-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/forgot_password --> user_microservices/controllers.(*User).UserForgotPassword-fm (5 handlers)
+[GIN-debug] PUT    /sellpump/api/user/v1/user/update --> user_microservices/controllers.(*User).UserUpdate-fm (5 handlers)
+[GIN-debug] DELETE /sellpump/api/user/v1/user/delete --> user_microservices/controllers.(*User).UserDelete-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/profil/create --> user_microservices/controllers.(*User).ProfilCreate-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/user/v1/profil/getprofil --> user_microservices/controllers.(*User).GetDataProfil-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2201
+[GIN] 2022/01/15 - 11:37:21 | 200 |    453.9359ms |             ::1 | POST     "/sellpump/api/user/v1/user/verifikasi_register"
+[GIN] 2022/01/15 - 11:38:18 | 200 |    402.0184ms |             ::1 | POST     "/sellpump/api/user/v1/user/verifikasi_register"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/user/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/user/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/user/v1/user/getuser --> user_microservices/controllers.(*User).GetDataUser-fm (6 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/create --> user_microservices/controllers.(*User).UserCreate-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/check --> user_microservices/controllers.(*User).UserCheckAkun-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/signin --> user_microservices/controllers.(*User).Signin-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/resend_verification --> user_microservices/controllers.(*User).UserResendVerification-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/verifikasi_register --> user_microservices/controllers.(*User).UserVerificationRegister-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/forgot_password --> user_microservices/controllers.(*User).UserForgotPassword-fm (5 handlers)
+[GIN-debug] PUT    /sellpump/api/user/v1/user/update --> user_microservices/controllers.(*User).UserUpdate-fm (5 handlers)
+[GIN-debug] DELETE /sellpump/api/user/v1/user/delete --> user_microservices/controllers.(*User).UserDelete-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/profil/create --> user_microservices/controllers.(*User).ProfilCreate-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/user/v1/profil/getprofil --> user_microservices/controllers.(*User).GetDataProfil-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2201
+[GIN] 2022/01/15 - 11:52:30 | 200 |    4.9813095s |             ::1 | POST     "/sellpump/api/user/v1/user/create"
+[GIN] 2022/01/15 - 11:54:44 | 200 |    5.4219425s |             ::1 | POST     "/sellpump/api/user/v1/user/resend_verification"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/user/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/user/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/user/v1/user/getuser --> user_microservices/controllers.(*User).GetDataUser-fm (6 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/create --> user_microservices/controllers.(*User).UserCreate-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/check --> user_microservices/controllers.(*User).UserCheckAkun-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/signin --> user_microservices/controllers.(*User).Signin-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/resend_verification --> user_microservices/controllers.(*User).UserResendVerification-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/verifikasi_register --> user_microservices/controllers.(*User).UserVerificationRegister-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/forgot_password --> user_microservices/controllers.(*User).UserForgotPassword-fm (5 handlers)
+[GIN-debug] PUT    /sellpump/api/user/v1/user/update --> user_microservices/controllers.(*User).UserUpdate-fm (5 handlers)
+[GIN-debug] DELETE /sellpump/api/user/v1/user/delete --> user_microservices/controllers.(*User).UserDelete-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/profil/create --> user_microservices/controllers.(*User).ProfilCreate-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/user/v1/profil/getprofil --> user_microservices/controllers.(*User).GetDataProfil-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2201
+[GIN] 2022/01/15 - 11:56:36 | 200 |    5.3181266s |             ::1 | POST     "/sellpump/api/user/v1/user/resend_verification"
+[GIN] 2022/01/15 - 11:58:05 | 200 |     488.216ms |             ::1 | POST     "/sellpump/api/user/v1/user/verifikasi_register"
+[GIN] 2022/01/15 - 11:58:46 | 200 |    529.8877ms |             ::1 | POST     "/sellpump/api/user/v1/user/verifikasi_register"
+[GIN] 2022/01/15 - 11:59:02 | 200 |    458.3077ms |             ::1 | POST     "/sellpump/api/user/v1/user/verifikasi_register"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/user/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/user/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/user/v1/user/getuser --> user_microservices/controllers.(*User).GetDataUser-fm (6 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/create --> user_microservices/controllers.(*User).UserCreate-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/check --> user_microservices/controllers.(*User).UserCheckAkun-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/signin --> user_microservices/controllers.(*User).Signin-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/resend_verification --> user_microservices/controllers.(*User).UserResendVerification-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/verifikasi_register --> user_microservices/controllers.(*User).UserVerificationRegister-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/forgot_password --> user_microservices/controllers.(*User).UserForgotPassword-fm (5 handlers)
+[GIN-debug] PUT    /sellpump/api/user/v1/user/update --> user_microservices/controllers.(*User).UserUpdate-fm (5 handlers)
+[GIN-debug] DELETE /sellpump/api/user/v1/user/delete --> user_microservices/controllers.(*User).UserDelete-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/profil/create --> user_microservices/controllers.(*User).ProfilCreate-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/user/v1/profil/getprofil --> user_microservices/controllers.(*User).GetDataProfil-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2201
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/user/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/user/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/user/v1/user/getuser --> user_microservices/controllers.(*User).GetDataUser-fm (6 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/create --> user_microservices/controllers.(*User).UserCreate-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/check --> user_microservices/controllers.(*User).UserCheckAkun-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/signin --> user_microservices/controllers.(*User).Signin-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/resend_verification --> user_microservices/controllers.(*User).UserResendVerification-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/verifikasi_register --> user_microservices/controllers.(*User).UserVerificationRegister-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/forgot_password --> user_microservices/controllers.(*User).UserForgotPassword-fm (5 handlers)
+[GIN-debug] PUT    /sellpump/api/user/v1/user/update --> user_microservices/controllers.(*User).UserUpdate-fm (5 handlers)
+[GIN-debug] DELETE /sellpump/api/user/v1/user/delete --> user_microservices/controllers.(*User).UserDelete-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/profil/create --> user_microservices/controllers.(*User).ProfilCreate-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/user/v1/profil/getprofil --> user_microservices/controllers.(*User).GetDataProfil-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2201
+[GIN] 2022/01/15 - 13:05:09 | 200 |    3.2827498s |             ::1 | POST     "/sellpump/api/user/v1/user/forgot_password"
+[GIN] 2022/01/15 - 13:05:42 | 200 |    2.9970406s |             ::1 | POST     "/sellpump/api/user/v1/user/forgot_password"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/user/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/user/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/user/v1/user/getuser --> user_microservices/controllers.(*User).GetDataUser-fm (6 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/create --> user_microservices/controllers.(*User).UserCreate-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/check --> user_microservices/controllers.(*User).UserCheckAkun-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/signin --> user_microservices/controllers.(*User).Signin-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/resend_verification --> user_microservices/controllers.(*User).UserResendVerification-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/verifikasi_register --> user_microservices/controllers.(*User).UserVerificationRegister-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/forgot_password --> user_microservices/controllers.(*User).UserForgotPassword-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/user/verifikasi_repassword --> user_microservices/controllers.(*User).UserVerificationRepassword-fm (5 handlers)
+[GIN-debug] PUT    /sellpump/api/user/v1/user/update --> user_microservices/controllers.(*User).UserUpdate-fm (5 handlers)
+[GIN-debug] DELETE /sellpump/api/user/v1/user/delete --> user_microservices/controllers.(*User).UserDelete-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/user/v1/profil/create --> user_microservices/controllers.(*User).ProfilCreate-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/user/v1/profil/getprofil --> user_microservices/controllers.(*User).GetDataProfil-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2201
+[GIN] 2022/01/15 - 13:14:49 | 200 |    321.2282ms |             ::1 | POST     "/sellpump/api/user/v1/user/verifikasi_repassword"
+[GIN] 2022/01/15 - 13:16:36 | 200 |      4.88301s |             ::1 | POST     "/sellpump/api/user/v1/user/create"
+[GIN] 2022/01/15 - 13:17:39 | 200 |    3.6163299s |             ::1 | POST     "/sellpump/api/user/v1/user/resend_verification"
+[GIN] 2022/01/15 - 13:18:35 | 200 |    489.1215ms |             ::1 | POST     "/sellpump/api/user/v1/user/verifikasi_register"
+[GIN] 2022/01/15 - 13:19:44 | 200 |    2.8402431s |             ::1 | POST     "/sellpump/api/user/v1/user/forgot_password"
+[GIN] 2022/01/15 - 13:20:41 | 200 |     406.432ms |             ::1 | POST     "/sellpump/api/user/v1/user/verifikasi_repassword"

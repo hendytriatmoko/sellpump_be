@@ -20,6 +20,8 @@ type UserCreate struct {
 	Status    	string `json:"status" form:"status"`
 	Verifikasi 	string   `json:"verifikasi" form:"verifikasi"`
 	CreatedAt   string `json:"created_at" form:"created_at"`
+	TokenRegister  	string `json:"token_register" form:"token_register"`
+	TokenRepassword string `json:"token_repassword" form:"token_repassword"`
 }
 
 type VerifikasiUser struct {
@@ -29,6 +31,7 @@ type VerifikasiUser struct {
 	Status    		string `json:"status" form:"status"`
 	CreatedAt   	string `json:"created_at" form:"created_at"`
 	ExpiredAt   	string `json:"expired_at" form:"expired_at"`
+	TokenRegister  	string `json:"token_register" form:"token_register"`
 }
 
 type GetUser struct {
@@ -89,6 +92,13 @@ type UpdateUser struct {
 	Foto      		*multipart.FileHeader `json:"foto" form:"foto"`
 }
 
+type VerificationUpdate struct {
+	IdUser       	string `json:"id_user" form:"id_user"`
+	TokenRegister  	string `json:"token_register" form:"token_register"`
+	Password    	string `json:"password" form:"password"`
+	TokenRepassword string `json:"token_repassword" form:"token_repassword"`
+}
+
 type UserUpdate struct {
 	IdUser       	string `json:"id_user" form:"id_user"`
 	Token    		string `json:"token" form:"token"`
@@ -101,6 +111,8 @@ type UserUpdate struct {
 	Verifikasi  	string `json:"verifikasi" form:"verifikasi"`
 	CreatedAt       string `json:"created_at" form:"created_at"`
 	UpdatedAt       string `json:"updated_at" form:"updated_at"`
+	TokenRegister  	string `json:"token_register" form:"token_register"`
+	TokenRepassword string `json:"token_repassword" form:"token_repassword"`
 }
 
 type DeleteUser struct {
@@ -119,6 +131,8 @@ type CheckAkunRead struct {
 	Email       	string `json:"email" form:"email"`
 	Status      	string `json:"status" form:"status"`
 	ExpiredAt   	string `json:"expired_at" form:"expired_at"`
+	UpdatedAt       string `json:"updated_at" form:"updated_at"`
+	TokenRegister  	string `json:"token_register" form:"token_register"`
 }
 
 type ForgotPasswordUser struct {

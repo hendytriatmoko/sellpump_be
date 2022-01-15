@@ -122,7 +122,9 @@ func main() {
 				userEP.POST("/check", user.UserCheckAkun)
 				userEP.POST("/signin", user.Signin)
 				userEP.POST("/resend_verification", user.UserResendVerification)
+				userEP.POST("/verifikasi_register", user.UserVerificationRegister)
 				userEP.POST("/forgot_password", user.UserForgotPassword)
+				userEP.POST("/verifikasi_repassword", user.UserVerificationRepassword)
 				userEP.PUT("/update", user.UserUpdate)
 				userEP.DELETE("/delete", user.UserDelete)
 			}

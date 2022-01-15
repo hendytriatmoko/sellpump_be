@@ -48,6 +48,7 @@ func (m *User) UserCreate(params models.CreateUser) (models.UserCreate, error) {
 	user.Status = "pembeli"
 	user.Verifikasi = "N"
 	user.CreatedAt = m.helper.GetTimeNow()
+	user.TokenRegister = m.helper.StringWithCharset()
 
 	err := databases.DatabaseSellPump.DB.Table("user").Create(&user).Error
 
@@ -58,6 +59,7 @@ func (m *User) UserCreate(params models.CreateUser) (models.UserCreate, error) {
 	dataverifikasi := models.VerifikasiUser{}
 	dataverifikasi.IdUser = user.IdUser
 	dataverifikasi.Email = user.Email
+	dataverifikasi.TokenRegister = user.TokenRegister
 	errx := m.VerifikasiUser(dataverifikasi)
 	if errx != nil {
 		return models.UserCreate{}, errx
@@ -70,6 +72,7 @@ func (m *User) VerifikasiUser(params models.VerifikasiUser) error {
 	verifikasi := models.VerifikasiUser{}
 
 	verifikasi.IdVerifikasi = m.helper.StringWithCharset()
+	verifikasi.TokenRegister = params.TokenRegister
 	verifikasi.IdUser = params.IdUser
 	verifikasi.Email = params.Email
 	verifikasi.Status = "N"
@@ -86,7 +89,7 @@ func (m *User) VerifikasiUser(params models.VerifikasiUser) error {
 		return err
 	}
 
-	err = m.helper.SendEmailVerifikasi(verifikasi.Email, verifikasi.IdUser, verifikasi.IdVerifikasi)
+	err = m.helper.SendEmailVerifikasi(verifikasi.Email, verifikasi.IdUser, verifikasi.TokenRegister)
 
 	if err != nil {
 		return err
@@ -194,11 +197,20 @@ func (m *User) UserCheckAkun(params models.CheckAkunUser) error {
 		err := errors.New("Email Tidak Ditemukan")
 		return err
 	}else if check == false {
-		if today > checkakun.ExpiredAt {
-			err := errors.New("Verification Expired")
-			return err
-		}else if today < checkakun.ExpiredAt {
-			if checkakun.Status == "N" {
+		//if today > checkakun.ExpiredAt {
+		//	err := errors.New("Verification Expired")
+		//	return err
+		//}else if today < checkakun.ExpiredAt {
+		//	if checkakun.Status == "N" {
+		//		err := errors.New("Silahkan Verifikasi Email Anda")
+		//		return err
+		//	}
+		//}
+		if checkakun.Status == "N" {
+			if today > checkakun.ExpiredAt {
+				err := errors.New("Verification Expired")
+				return err
+			} else if today < checkakun.ExpiredAt {
 				err := errors.New("Silahkan Verifikasi Email Anda")
 				return err
 			}
@@ -212,16 +224,28 @@ func (m *User) UserCheckAkun(params models.CheckAkunUser) error {
 func (m *User) UserResendVerification(params models.CheckAkunUser) (models.CheckAkunRead, error) {
 
 	updateverifikasi := models.CheckAkunRead{}
+	user := models.UserUpdate{}
 
 	ti := time.Now()
 	ti_n := ti.AddDate(0, 0, 7)
 	next := string(ti_n.Format("2006-01-02 15:04:05.999999"))
 	updateverifikasi.ExpiredAt = next
+	updateverifikasi.UpdatedAt = m.helper.GetTimeNow()
+	updateverifikasi.TokenRegister = m.helper.StringWithCharset()
+
+	user.UpdatedAt = m.helper.GetTimeNow()
+	user.TokenRegister = updateverifikasi.TokenRegister
 
 	err := databases.DatabaseSellPump.DB.Table("verifikasi").Where("email = ?", params.Email).Update(&updateverifikasi).Error
 
 	if err != nil {
 		return models.CheckAkunRead{}, err
+	}
+
+	errs := databases.DatabaseSellPump.DB.Table("user").Where("email = ?", params.Email).Update(&user).Error
+
+	if errs != nil {
+		return models.CheckAkunRead{}, errs
 	}
 
 	errx := databases.DatabaseSellPump.DB.Table("verifikasi").Where("email = ?", params.Email).Find(&updateverifikasi).Error
@@ -230,7 +254,9 @@ func (m *User) UserResendVerification(params models.CheckAkunUser) (models.Check
 		return models.CheckAkunRead{}, errx
 	}
 
-	erry := m.helper.SendEmailVerifikasi(updateverifikasi.Email, updateverifikasi.IdUser, updateverifikasi.IdVerifikasi)
+
+
+	erry := m.helper.SendEmailVerifikasi(updateverifikasi.Email, updateverifikasi.IdUser, updateverifikasi.TokenRegister)
 	if erry != nil {
 		return updateverifikasi, erry
 	}
@@ -239,9 +265,53 @@ func (m *User) UserResendVerification(params models.CheckAkunUser) (models.Check
 
 }
 
+func (m *User) UserVerificationRegister(params models.VerificationUpdate) ([]models.UserGet, error) {
+
+	user := models.UserUpdate{}
+	updateverifikasi := models.CheckAkunRead{}
+	getuser := []models.UserGet{}
+
+	user.UpdatedAt = m.helper.GetTimeNow()
+	user.Verifikasi = "Y"
+
+	updateverifikasi.UpdatedAt = m.helper.GetTimeNow()
+	updateverifikasi.Status = "Y"
+
+
+	errz := databases.DatabaseSellPump.DB.Table("verifikasi").Where("id_user = ?", params.IdUser).Where("token_register = ?", params.TokenRegister).Update(&updateverifikasi).Error
+
+	if errz != nil {
+		return []models.UserGet{}, errz
+	}
+
+	err := databases.DatabaseSellPump.DB.Table("user").Where("id_user = ?", params.IdUser).Where("token_register = ?", params.TokenRegister).Update(&user).Error
+
+	if err != nil {
+		return []models.UserGet{}, err
+	}
+
+	paramuser := models.GetUser{}
+	paramuser.IdUser = params.IdUser
+	getuser,errx := m.UserGet(paramuser)
+	if errx != nil {
+		return []models.UserGet{}, errx
+	}
+	return getuser, nil
+
+}
+
 func (m *User) UserForgotPassword(params models.CheckAkunUser) (models.UserGet, error) {
 
 	updateverifikasi := models.UserGet{}
+	user := models.UserUpdate{}
+
+	user.TokenRepassword = m.helper.StringWithCharset()
+
+	errs := databases.DatabaseSellPump.DB.Table("user").Where("email = ?", params.Email).Update(&user).Error
+
+	if errs != nil {
+		return models.UserGet{}, errs
+	}
 
 	errx := databases.DatabaseSellPump.DB.Table("user").Where("email = ?", params.Email).Find(&updateverifikasi).Error
 
@@ -249,12 +319,36 @@ func (m *User) UserForgotPassword(params models.CheckAkunUser) (models.UserGet, 
 		return models.UserGet{}, errx
 	}
 
-	erry := m.helper.SendForgotPassword(updateverifikasi.Email)
+	erry := m.helper.SendForgotPassword(updateverifikasi.Email,updateverifikasi.IdUser,user.TokenRepassword)
 	if erry != nil {
 		return updateverifikasi, erry
 	}
 
 	return updateverifikasi, nil
+
+}
+
+func (m *User) UserVerificationRepassword(params models.VerificationUpdate) ([]models.UserGet, error) {
+
+	user := models.UserUpdate{}
+	getuser := []models.UserGet{}
+
+	user.UpdatedAt = m.helper.GetTimeNow()
+	user.Password,_ = EncryptPassword(params.Password)
+
+	err := databases.DatabaseSellPump.DB.Table("user").Where("id_user = ?", params.IdUser).Where("token_repassword = ?", params.TokenRepassword).Update(&user).Error
+
+	if err != nil {
+		return []models.UserGet{}, err
+	}
+
+	paramuser := models.GetUser{}
+	paramuser.IdUser = params.IdUser
+	getuser,errx := m.UserGet(paramuser)
+	if errx != nil {
+		return []models.UserGet{}, errx
+	}
+	return getuser, nil
 
 }
 
