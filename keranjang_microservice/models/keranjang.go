@@ -27,6 +27,8 @@ type KeranjangGet struct {
 	CreatedAt       string  `json:"created_at" form:"created_at"`
 	UpdatedAt       string  `json:"updated_at" form:"updated_at"`
 	DeletedAt       string  `json:"deleted_at" form:"deleted_at"`
+	Limit     		*int64 `json:"limit" form:"limit"`
+	Offset    		*int64 `json:"offset" form:"offset"`
 }
 
 type CreateKeranjang struct {
@@ -117,6 +119,8 @@ type GetInvoice struct {
 	IdStatusPengiriman string `json:"id_status_pengiriman" form:"id_status_pengiriman"`
 	IdStatusPembayaran string `json:"id_status_pembayaran" form:"id_status_pembayaran"`
 	CreatedAt          string `json:"created_at" form:"created_at"`
+	Limit     			*int64 `json:"limit" form:"limit"`
+	Offset    			*int64 `json:"offset" form:"offset"`
 }
 
 type InvoiceGet struct {

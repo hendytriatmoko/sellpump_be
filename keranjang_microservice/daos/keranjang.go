@@ -24,10 +24,16 @@ func (m *Keranjang) KeranjangGet(params models.KeranjangGet) ([]models.Keranjang
 	keranjang := []models.KeranjangGet{}
 
 	err := databases.DatabaseSellPump.DB.Table("keranjang").Select("keranjang.*,k.nama_produk,k.harga_produk,k.deskripsi_produk,k.gambar_produk,k.berat_produk").
-		Joins("join produk k on k.id_produk = keranjang.id_produk")
+		Joins("join produk k on k.id_produk = keranjang.id_produk").Order("keranjang.created_at desc")
 
 	if params.IdUser != "" {
 		err = err.Where("keranjang.id_user = ?", params.IdUser)
+	}
+	if params.Limit != nil {
+		err = err.Limit(*params.Limit)
+	}
+	if params.Offset != nil {
+		err = err.Offset(*params.Offset)
 	}
 
 	err = err.Find(&keranjang)
@@ -266,7 +272,7 @@ func (m *Keranjang) InvoiceGet(params models.GetInvoice) ([]models.InvoiceGet, e
 	invoice := []models.InvoiceGet{}
 	getPesanan := models.GetPesanan{}
 
-	err := databases.DatabaseSellPump.DB.Table("invoice")
+	err := databases.DatabaseSellPump.DB.Table("invoice").Order("created_at desc")
 
 	if params.IdUser != "" {
 		err = err.Where("id_user = ?", params.IdUser)
@@ -276,6 +282,12 @@ func (m *Keranjang) InvoiceGet(params models.GetInvoice) ([]models.InvoiceGet, e
 	}
 	if params.CreatedAt != "" {
 		err = err.Where("created_at::text like  ?", "%"+params.CreatedAt+"%")
+	}
+	if params.Limit != nil {
+		err = err.Limit(*params.Limit)
+	}
+	if params.Offset != nil {
+		err = err.Offset(*params.Offset)
 	}
 
 	err = err.Find(&invoice)

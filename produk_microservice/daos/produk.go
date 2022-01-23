@@ -122,7 +122,8 @@ func (m *Produk) ProdukGet(params models.GetProduk) ([]models.ProdukGet, error) 
 
 	err := databases.DatabaseSellPump.DB.Table("produk").Select("produk.*,k.kategori,k.sub_kategori, m.nama_merk, m.gambar_merk").
 		Joins("join kategori k on k.id_kategori = produk.id_kategori_produk").
-		Joins("join merk m on m.id_merk = produk.id_merk_produk")
+		Joins("join merk m on m.id_merk = produk.id_merk_produk").
+		Order("produk.created_at desc")
 
 	if params.IdProduk != "" {
 		err = err.Where("produk.id_produk = ?", params.IdProduk)
@@ -205,7 +206,7 @@ func (m *Produk) ArtikelGet(params models.GetArtikel) ([]models.ArtikelGet, erro
 
 	artikel := []models.ArtikelGet{}
 
-	err := databases.DatabaseSellPump.DB.Table("artikel")
+	err := databases.DatabaseSellPump.DB.Table("artikel").Order("created_at desc")
 
 	if params.IdArtikel != "" {
 		err = err.Where("id_artikel = ?", params.IdArtikel)
