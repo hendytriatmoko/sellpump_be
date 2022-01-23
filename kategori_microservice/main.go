@@ -109,7 +109,7 @@ func main() {
 			v1.GET("/getkategori", kategori.GetDataKategori)
 			v1.POST("/create", kategori.KategoriCreate)
 			v1.PUT("/update", kategori.KategoriUpdate)
-			v1.DELETE("/delete", kategori.KategoriDelete)
+			v1.PUT("/delete", kategori.KategoriDelete)
 		}
 
 	}
