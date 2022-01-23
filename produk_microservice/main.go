@@ -120,7 +120,7 @@ func main() {
 				userEP.GET("/getproduk", produk.GetDataProduk)
 				authUserEP.POST("/create", produk.ProdukCreate)
 				authUserEP.PUT("/update", produk.ProdukUpdate)
-				authUserEP.DELETE("/delete", produk.ProdukDelete)
+				authUserEP.PUT("/delete", produk.ProdukDelete)
 			}
 			artikelEP := v1.Group("artikel")
 			{
@@ -130,7 +130,7 @@ func main() {
 				artikelEP.GET("/getartikel", produk.GetDataArtikel)
 				authArtikelEP.POST("/create", produk.ArtikelCreate)
 				authArtikelEP.PUT("/update", produk.ArtikelUpdate)
-				authArtikelEP.DELETE("/delete", produk.ArtikelDelete)
+				authArtikelEP.PUT("/delete", produk.ArtikelDelete)
 			}
 		}
 
