@@ -136,7 +136,7 @@ func main() {
 				authPesananEP.Use(middleware.Auth)
 
 				authPesananEP.POST("/create", keranjang.PesananCreate)
-				authPesananEP.GET("/getpesanan", keranjang.GetDataPesanan)
+				pesananEP.GET("/getpesanan", keranjang.GetDataPesanan)
 			}
 			invoiceEP := v1.Group("invoice")
 			{

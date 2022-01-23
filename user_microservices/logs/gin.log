@@ -2352,3 +2352,6 @@ Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-
 [GIN] 2022/01/15 - 13:18:35 | 200 |    489.1215ms |             ::1 | POST     "/sellpump/api/user/v1/user/verifikasi_register"
 [GIN] 2022/01/15 - 13:19:44 | 200 |    2.8402431s |             ::1 | POST     "/sellpump/api/user/v1/user/forgot_password"
 [GIN] 2022/01/15 - 13:20:41 | 200 |     406.432ms |             ::1 | POST     "/sellpump/api/user/v1/user/verifikasi_repassword"
+[GIN] 2022/01/15 - 18:37:47 | 200 |    5.1482839s |             ::1 | POST     "/sellpump/api/user/v1/user/resend_verification"
+[GIN] 2022/01/15 - 18:49:36 | 200 |    440.0806ms |             ::1 | POST     "/sellpump/api/user/v1/user/verifikasi_register"
+[GIN] 2022/01/15 - 20:18:25 | 200 |    445.8568ms |             ::1 | POST     "/sellpump/api/user/v1/user/verifikasi_register"

@@ -110,7 +110,7 @@ func main() {
 			v1.GET("/getmerk", merk.GetDataMerk)
 			v1.POST("/create", merk.MerkCreate)
 			v1.PUT("/update", merk.MerkUpdate)
-			v1.DELETE("/delete", merk.MerkDelete)
+			v1.PUT("/delete", merk.MerkDelete)
 		}
 
 	}
