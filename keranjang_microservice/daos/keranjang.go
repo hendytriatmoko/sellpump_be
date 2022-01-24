@@ -272,16 +272,16 @@ func (m *Keranjang) InvoiceGet(params models.GetInvoice) ([]models.InvoiceGet, e
 	invoice := []models.InvoiceGet{}
 	getPesanan := models.GetPesanan{}
 
-	err := databases.DatabaseSellPump.DB.Table("invoice").Order("created_at desc")
+	err := databases.DatabaseSellPump.DB.Table("invoice").Select("invoice.*").Order("invoice.created_at desc")
 
 	if params.IdUser != "" {
-		err = err.Where("id_user = ?", params.IdUser)
+		err = err.Where("invoice.id_user = ?", params.IdUser)
 	}
 	if params.NoInv != "" {
-		err = err.Where("no_inv = ?", params.NoInv)
+		err = err.Where("invoice.no_inv = ?", params.NoInv)
 	}
 	if params.CreatedAt != "" {
-		err = err.Where("created_at::text like  ?", "%"+params.CreatedAt+"%")
+		err = err.Where("invoice.created_at::text like  ?", "%"+params.CreatedAt+"%")
 	}
 	if params.Limit != nil {
 		err = err.Limit(*params.Limit)
