@@ -544,3 +544,79 @@ func (m *User) ProfilGet(params models.GetUser) ([]models.ProfilCreate, error) {
 
 	return profil, nil
 }
+
+func (m *User) ProfilUpdate(params models.UpdateProfil) ([]models.ProfilCreate, error) {
+
+	profil := models.ProfilUpdate{}
+	geprofil := []models.ProfilCreate{}
+
+	if params.Npwp != nil {
+		path := "/profil/"
+		pathImage := "./files/"+path
+		ext := filepath.Ext(params.Npwp.Filename)
+		filename := strings.Replace(params.IdUser," ","_", -1)+"npwp"+ext
+
+		os.MkdirAll(pathImage, 0777)
+		errx := m.helper.SaveUploadedFile(params.Npwp, pathImage+filename)
+		if errx != nil{
+			return []models.ProfilCreate{},errx
+		}
+
+		url := string(filepath.FromSlash(path+filename))
+
+		profil.Npwp = new(string)
+		*profil.Npwp = url
+	}
+	if params.Tdp != nil {
+		path := "/profil/"
+		pathImage := "./files/"+path
+		ext := filepath.Ext(params.Tdp.Filename)
+		filename := strings.Replace(params.IdUser," ","_", -1)+"tdp"+ext
+
+		os.MkdirAll(pathImage, 0777)
+		errx := m.helper.SaveUploadedFile(params.Tdp, pathImage+filename)
+		if errx != nil{
+			return []models.ProfilCreate{},errx
+		}
+
+		url := string(filepath.FromSlash(path+filename))
+
+		profil.Tdp = new(string)
+		*profil.Tdp = url
+	}
+	if params.Siup != nil {
+		path := "/profil/"
+		pathImage := "./files/"+path
+		ext := filepath.Ext(params.Siup.Filename)
+		filename := strings.Replace(params.IdUser," ","_", -1)+"siup"+ext
+
+		os.MkdirAll(pathImage, 0777)
+		errx := m.helper.SaveUploadedFile(params.Siup, pathImage+filename)
+		if errx != nil{
+			return []models.ProfilCreate{},errx
+		}
+
+		url := string(filepath.FromSlash(path+filename))
+
+		profil.Siup = new(string)
+		*profil.Siup = url
+	}
+	profil.UpdatedAt = m.helper.GetTimeNow()
+	profil.Nama = params.Nama
+	profil.Alamat = params.Alamat
+
+	err := databases.DatabaseSellPump.DB.Table("profil").Where("id_user = ?", params.IdUser).Update(&profil).Error
+
+	if err != nil {
+		return []models.ProfilCreate{}, err
+	}
+
+	paramprofil := models.GetUser{}
+	paramprofil.IdUser = params.IdUser
+	geprofil,errx := m.ProfilGet(paramprofil)
+	if errx != nil {
+		return []models.ProfilCreate{}, errx
+	}
+	return geprofil, nil
+
+}

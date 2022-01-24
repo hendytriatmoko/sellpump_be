@@ -135,6 +135,7 @@ func main() {
 
 				authprofilEP.POST("/create", user.ProfilCreate)
 				authprofilEP.GET("/getprofil", user.GetDataProfil)
+				authprofilEP.PUT("/update", user.ProfilUpdate)
 			}
 		}
 
