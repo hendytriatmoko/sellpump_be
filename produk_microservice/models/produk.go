@@ -213,6 +213,7 @@ type DeleteKhusus struct {
 type CreateProdukKhusus struct {
 	IdKhusus			string `json:"id_khusus" form:"id_khusus"`
 	IdProduk       		string `json:"id_produk" form:"id_produk"`
+	Kuantitas       	string  `json:"kuantitas" form:"kuantitas"`
 	CreatedAt        	string `json:"created_at" form:"created_at"`
 }
 
@@ -220,6 +221,7 @@ type ProdukKhususCreate struct {
 	IdProdukKhusus		string `json:"id_produk_khusus" form:"id_produk_khusus"`
 	IdKhusus			string `json:"id_khusus" form:"id_khusus"`
 	IdProduk       		string `json:"id_produk" form:"id_produk"`
+	Kuantitas       	string  `json:"kuantitas" form:"kuantitas"`
 	CreatedAt        	string `json:"created_at" form:"created_at"`
 }
 
@@ -234,7 +236,8 @@ type ProdukKhususGet struct {
 	IdProdukKhusus		string `json:"id_produk_khusus" form:"id_produk_khusus"`
 	IdKhusus			string `json:"id_khusus" form:"id_khusus"`
 	IdProduk       		string `json:"id_produk" form:"id_produk"`
+	Kuantitas       	string  `json:"kuantitas" form:"kuantitas"`
 	Produk				[]ProdukGet `json:"produk" form:"produk"`
-	CreatedAt          string `json:"created_at" form:"created_at"`
-	UpdatedAt          string `json:"updated_at" form:"updated_at"`
+	CreatedAt          	string `json:"created_at" form:"created_at"`
+	UpdatedAt          	string `json:"updated_at" form:"updated_at"`
 }
