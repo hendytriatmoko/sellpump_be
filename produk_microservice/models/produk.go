@@ -196,6 +196,8 @@ type KhususGet struct {
 	IdUser       		string `json:"id_user" form:"id_user"`
 	NamaKhusus      	string `json:"nama_khusus" form:"nama_khusus"`
 	HargaKhusus    		float64 `json:"harga_khusus" form:"harga_khusus"`
+	HargaAsli    		float64 `json:"harga_asli" form:"harga_asli"`
+	Diskon	    		float64 `json:"diskon" form:"diskon"`
 	BeratKhusus     	string `json:"berat_khusus" form:"berat_khusus"`
 	DeskripsiKhusus 	string `json:"deskripsi_khusus" form:"deskripsi_khusus"`
 	ProdukKhusus		[]ProdukKhususGet `json:"produk_khusus" form:"produk_khusus"`
