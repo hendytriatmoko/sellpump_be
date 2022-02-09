@@ -299,3 +299,183 @@ func (u *Produk) ArtikelDelete(c *gin.Context) {
 	}
 
 }
+
+func (u *Produk) KhususCreate(c *gin.Context) {
+
+	params := models.CreateKhusus{}
+
+	response := models.Response{}
+
+	err := c.ShouldBind(&params)
+
+	if err != nil {
+		var mess string
+		if err != nil {
+			mess = mess + err.Error()
+		}
+
+		response.ApiMessage = "validation " + mess
+		c.JSON(400, response)
+	} else {
+
+		data, err := u.daos.KhususCreate(params)
+
+		if err != nil {
+			response.ApiStatus = 0
+			response.ApiMessage = err.Error()
+			c.JSON(500, response)
+		} else {
+			response.ApiStatus = 1
+			response.Data = data
+			response.ApiMessage = common.StatusSukses
+			c.JSON(http.StatusOK, response)
+
+		}
+
+	}
+
+}
+
+func (u *Produk) GetDataKhusus(c *gin.Context) {
+
+	response := models.Response{}
+	params := models.GetKhusus{}
+
+	err := c.ShouldBind(&params)
+
+	if err != nil {
+		var mess string
+		if err != nil {
+			mess = mess + err.Error()
+		}
+
+		response.ApiMessage = "validation " + mess
+		c.JSON(400, response)
+	} else {
+
+		data, err := u.daos.KhususGet(params)
+
+		if err != nil {
+			response.ApiStatus = 0
+			response.ApiMessage = err.Error()
+			c.JSON(500, response)
+		} else {
+			response.ApiStatus = 1
+			response.Data = data
+			response.ApiMessage = common.StatusSukses
+			c.JSON(http.StatusOK, response)
+
+		}
+
+	}
+
+
+}
+
+func (u *Produk) KhususDelete(c *gin.Context) {
+
+	params := models.DeleteKhusus{}
+
+	response := models.Response{}
+
+	err := c.ShouldBind(&params)
+
+	if err != nil {
+		var mess string
+		if err != nil {
+			mess = mess + err.Error()
+		}
+
+		response.ApiMessage = "validation " + mess
+		c.JSON(400, response)
+	} else {
+
+		data, err := u.daos.KhususDelete(params)
+
+		if err != nil {
+			response.ApiStatus = 0
+			response.ApiMessage = err.Error()
+			c.JSON(500, response)
+		} else {
+			response.ApiStatus = 1
+			response.Data = data
+			response.ApiMessage = common.StatusSukses
+			c.JSON(http.StatusOK, response)
+
+		}
+
+	}
+
+}
+
+func (u *Produk) ProdukKhususCreate(c *gin.Context) {
+
+	params := models.CreateProdukKhusus{}
+
+	response := models.Response{}
+
+	err := c.ShouldBind(&params)
+
+	if err != nil {
+		var mess string
+		if err != nil {
+			mess = mess + err.Error()
+		}
+
+		response.ApiMessage = "validation " + mess
+		c.JSON(400, response)
+	} else {
+
+		data, err := u.daos.ProdukKhususCreate(params)
+
+		if err != nil {
+			response.ApiStatus = 0
+			response.ApiMessage = err.Error()
+			c.JSON(500, response)
+		} else {
+			response.ApiStatus = 1
+			response.Data = data
+			response.ApiMessage = common.StatusSukses
+			c.JSON(http.StatusOK, response)
+
+		}
+
+	}
+
+}
+
+func (u *Produk) GetDataProdukKhusus(c *gin.Context) {
+
+	response := models.Response{}
+	params := models.GetProdukKhusus{}
+
+	err := c.ShouldBind(&params)
+
+	if err != nil {
+		var mess string
+		if err != nil {
+			mess = mess + err.Error()
+		}
+
+		response.ApiMessage = "validation " + mess
+		c.JSON(400, response)
+	} else {
+
+		data, err := u.daos.ProdukKhususGet(params)
+
+		if err != nil {
+			response.ApiStatus = 0
+			response.ApiMessage = err.Error()
+			c.JSON(500, response)
+		} else {
+			response.ApiStatus = 1
+			response.Data = data
+			response.ApiMessage = common.StatusSukses
+			c.JSON(http.StatusOK, response)
+
+		}
+
+	}
+
+
+}

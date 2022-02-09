@@ -1045,3 +1045,351 @@ Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :2202
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/produk/getproduk --> produk_microservice/controllers.(*Produk).GetDataProduk-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/produk/create --> produk_microservice/controllers.(*Produk).ProdukCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/update --> produk_microservice/controllers.(*Produk).ProdukUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/delete --> produk_microservice/controllers.(*Produk).ProdukDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/artikel/getartikel --> produk_microservice/controllers.(*Produk).GetDataArtikel-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/artikel/create --> produk_microservice/controllers.(*Produk).ArtikelCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/update --> produk_microservice/controllers.(*Produk).ArtikelUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/delete --> produk_microservice/controllers.(*Produk).ArtikelDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/khusus/getkhusus --> produk_microservice/controllers.(*Produk).GetDataKhusus-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/artikel/create --> produk_microservice/controllers.(*Produk).KhususCreate-fm (6 handlers)
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/produk/getproduk --> produk_microservice/controllers.(*Produk).GetDataProduk-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/produk/create --> produk_microservice/controllers.(*Produk).ProdukCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/update --> produk_microservice/controllers.(*Produk).ProdukUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/delete --> produk_microservice/controllers.(*Produk).ProdukDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/artikel/getartikel --> produk_microservice/controllers.(*Produk).GetDataArtikel-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/artikel/create --> produk_microservice/controllers.(*Produk).ArtikelCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/update --> produk_microservice/controllers.(*Produk).ArtikelUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/delete --> produk_microservice/controllers.(*Produk).ArtikelDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/khusus/getkhusus --> produk_microservice/controllers.(*Produk).GetDataKhusus-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/khusus/create --> produk_microservice/controllers.(*Produk).KhususCreate-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2202
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/produk/getproduk --> produk_microservice/controllers.(*Produk).GetDataProduk-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/produk/create --> produk_microservice/controllers.(*Produk).ProdukCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/update --> produk_microservice/controllers.(*Produk).ProdukUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/delete --> produk_microservice/controllers.(*Produk).ProdukDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/artikel/getartikel --> produk_microservice/controllers.(*Produk).GetDataArtikel-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/artikel/create --> produk_microservice/controllers.(*Produk).ArtikelCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/update --> produk_microservice/controllers.(*Produk).ArtikelUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/delete --> produk_microservice/controllers.(*Produk).ArtikelDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/khusus/getkhusus --> produk_microservice/controllers.(*Produk).GetDataKhusus-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/khusus/create --> produk_microservice/controllers.(*Produk).KhususCreate-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2202
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/produk/getproduk --> produk_microservice/controllers.(*Produk).GetDataProduk-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/produk/create --> produk_microservice/controllers.(*Produk).ProdukCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/update --> produk_microservice/controllers.(*Produk).ProdukUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/delete --> produk_microservice/controllers.(*Produk).ProdukDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/artikel/getartikel --> produk_microservice/controllers.(*Produk).GetDataArtikel-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/artikel/create --> produk_microservice/controllers.(*Produk).ArtikelCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/update --> produk_microservice/controllers.(*Produk).ArtikelUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/delete --> produk_microservice/controllers.(*Produk).ArtikelDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/khusus/getkhusus --> produk_microservice/controllers.(*Produk).GetDataKhusus-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/khusus/create --> produk_microservice/controllers.(*Produk).KhususCreate-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2202
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/produk/getproduk --> produk_microservice/controllers.(*Produk).GetDataProduk-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/produk/create --> produk_microservice/controllers.(*Produk).ProdukCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/update --> produk_microservice/controllers.(*Produk).ProdukUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/delete --> produk_microservice/controllers.(*Produk).ProdukDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/artikel/getartikel --> produk_microservice/controllers.(*Produk).GetDataArtikel-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/artikel/create --> produk_microservice/controllers.(*Produk).ArtikelCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/update --> produk_microservice/controllers.(*Produk).ArtikelUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/delete --> produk_microservice/controllers.(*Produk).ArtikelDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/khusus/getkhusus --> produk_microservice/controllers.(*Produk).GetDataKhusus-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/khusus/create --> produk_microservice/controllers.(*Produk).KhususCreate-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2202
+[GIN] 2022/02/09 - 11:18:57 | 500 |    284.9356ms |             ::1 | POST     "/sellpump/api/produk/v1/khusus/create"
+[GIN] 2022/02/09 - 11:20:25 | 500 |    226.4924ms |             ::1 | POST     "/sellpump/api/produk/v1/khusus/create"
+[GIN] 2022/02/09 - 11:20:51 | 500 |     347.529ms |             ::1 | POST     "/sellpump/api/produk/v1/khusus/create"
+[GIN] 2022/02/09 - 11:20:53 | 500 |    357.7233ms |             ::1 | POST     "/sellpump/api/produk/v1/khusus/create"
+[GIN] 2022/02/09 - 11:20:59 | 500 |    573.8927ms |             ::1 | POST     "/sellpump/api/produk/v1/khusus/create"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/produk/getproduk --> produk_microservice/controllers.(*Produk).GetDataProduk-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/produk/create --> produk_microservice/controllers.(*Produk).ProdukCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/update --> produk_microservice/controllers.(*Produk).ProdukUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/delete --> produk_microservice/controllers.(*Produk).ProdukDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/artikel/getartikel --> produk_microservice/controllers.(*Produk).GetDataArtikel-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/artikel/create --> produk_microservice/controllers.(*Produk).ArtikelCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/update --> produk_microservice/controllers.(*Produk).ArtikelUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/delete --> produk_microservice/controllers.(*Produk).ArtikelDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/khusus/getkhusus --> produk_microservice/controllers.(*Produk).GetDataKhusus-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/khusus/create --> produk_microservice/controllers.(*Produk).KhususCreate-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2202
+[GIN] 2022/02/09 - 11:21:55 | 500 |    327.5531ms |             ::1 | POST     "/sellpump/api/produk/v1/khusus/create"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/produk/getproduk --> produk_microservice/controllers.(*Produk).GetDataProduk-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/produk/create --> produk_microservice/controllers.(*Produk).ProdukCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/update --> produk_microservice/controllers.(*Produk).ProdukUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/delete --> produk_microservice/controllers.(*Produk).ProdukDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/artikel/getartikel --> produk_microservice/controllers.(*Produk).GetDataArtikel-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/artikel/create --> produk_microservice/controllers.(*Produk).ArtikelCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/update --> produk_microservice/controllers.(*Produk).ArtikelUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/delete --> produk_microservice/controllers.(*Produk).ArtikelDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/khusus/getkhusus --> produk_microservice/controllers.(*Produk).GetDataKhusus-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/khusus/create --> produk_microservice/controllers.(*Produk).KhususCreate-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2202
+[GIN] 2022/02/09 - 11:40:02 | 500 |    431.9193ms |             ::1 | POST     "/sellpump/api/produk/v1/khusus/create"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/produk/getproduk --> produk_microservice/controllers.(*Produk).GetDataProduk-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/produk/create --> produk_microservice/controllers.(*Produk).ProdukCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/update --> produk_microservice/controllers.(*Produk).ProdukUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/delete --> produk_microservice/controllers.(*Produk).ProdukDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/artikel/getartikel --> produk_microservice/controllers.(*Produk).GetDataArtikel-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/artikel/create --> produk_microservice/controllers.(*Produk).ArtikelCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/update --> produk_microservice/controllers.(*Produk).ArtikelUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/delete --> produk_microservice/controllers.(*Produk).ArtikelDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/khusus/getkhusus --> produk_microservice/controllers.(*Produk).GetDataKhusus-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/khusus/create --> produk_microservice/controllers.(*Produk).KhususCreate-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2202
+[GIN] 2022/02/09 - 13:09:28 | 500 |    303.9882ms |             ::1 | POST     "/sellpump/api/produk/v1/khusus/create"
+[GIN] 2022/02/09 - 13:22:03 | 500 |    251.5794ms |             ::1 | POST     "/sellpump/api/produk/v1/khusus/create"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/produk/getproduk --> produk_microservice/controllers.(*Produk).GetDataProduk-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/produk/create --> produk_microservice/controllers.(*Produk).ProdukCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/update --> produk_microservice/controllers.(*Produk).ProdukUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/delete --> produk_microservice/controllers.(*Produk).ProdukDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/artikel/getartikel --> produk_microservice/controllers.(*Produk).GetDataArtikel-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/artikel/create --> produk_microservice/controllers.(*Produk).ArtikelCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/update --> produk_microservice/controllers.(*Produk).ArtikelUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/delete --> produk_microservice/controllers.(*Produk).ArtikelDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/khusus/getkhusus --> produk_microservice/controllers.(*Produk).GetDataKhusus-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/khusus/create --> produk_microservice/controllers.(*Produk).KhususCreate-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2202
+[GIN] 2022/02/09 - 13:25:55 | 200 |    255.9057ms |             ::1 | POST     "/sellpump/api/produk/v1/khusus/create"
+[GIN] 2022/02/09 - 13:27:00 | 200 |     530.132ms |             ::1 | POST     "/sellpump/api/produk/v1/khusus/create"
+[GIN] 2022/02/09 - 13:27:30 | 200 |     90.0918ms |             ::1 | GET      "/sellpump/api/produk/v1/khusus/getkhusus"
+[GIN] 2022/02/09 - 13:27:57 | 200 |    973.5649ms |             ::1 | GET      "/sellpump/api/produk/v1/khusus/getkhusus?limit=1"
+[GIN] 2022/02/09 - 13:28:03 | 200 |      533.47ms |             ::1 | GET      "/sellpump/api/produk/v1/khusus/getkhusus"
+[GIN] 2022/02/09 - 13:28:25 | 500 |    149.0116ms |             ::1 | GET      "/sellpump/api/produk/v1/khusus/getkhusus?id_khusus=4w9l287x-c6do-fmux-x96m-caq343q5eg6w"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/produk/getproduk --> produk_microservice/controllers.(*Produk).GetDataProduk-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/produk/create --> produk_microservice/controllers.(*Produk).ProdukCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/update --> produk_microservice/controllers.(*Produk).ProdukUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/delete --> produk_microservice/controllers.(*Produk).ProdukDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/artikel/getartikel --> produk_microservice/controllers.(*Produk).GetDataArtikel-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/artikel/create --> produk_microservice/controllers.(*Produk).ArtikelCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/update --> produk_microservice/controllers.(*Produk).ArtikelUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/delete --> produk_microservice/controllers.(*Produk).ArtikelDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/khusus/getkhusus --> produk_microservice/controllers.(*Produk).GetDataKhusus-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/khusus/create --> produk_microservice/controllers.(*Produk).KhususCreate-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2202
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/produk/getproduk --> produk_microservice/controllers.(*Produk).GetDataProduk-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/produk/create --> produk_microservice/controllers.(*Produk).ProdukCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/update --> produk_microservice/controllers.(*Produk).ProdukUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/delete --> produk_microservice/controllers.(*Produk).ProdukDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/artikel/getartikel --> produk_microservice/controllers.(*Produk).GetDataArtikel-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/artikel/create --> produk_microservice/controllers.(*Produk).ArtikelCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/update --> produk_microservice/controllers.(*Produk).ArtikelUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/delete --> produk_microservice/controllers.(*Produk).ArtikelDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/khusus/getkhusus --> produk_microservice/controllers.(*Produk).GetDataKhusus-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/khusus/create --> produk_microservice/controllers.(*Produk).KhususCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/khusus/delete --> produk_microservice/controllers.(*Produk).KhususDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/produk_khusus/get_produk_khusus --> produk_microservice/controllers.(*Produk).GetDataProdukKhusus-fm (6 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/produk_khusus/create --> produk_microservice/controllers.(*Produk).ProdukKhususCreate-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2202
+[GIN] 2022/02/09 - 15:21:38 | 200 |    177.5938ms |             ::1 | GET      "/sellpump/api/produk/v1/produk/getproduk"
+[GIN] 2022/02/09 - 15:22:13 | 403 |      1.1355ms |             ::1 | GET      "/sellpump/api/produk/v1/produk_khusus/get_produk_khusus"
+[GIN] 2022/02/09 - 15:22:49 | 200 |    328.3116ms |             ::1 | GET      "/sellpump/api/produk/v1/produk_khusus/get_produk_khusus"
+[GIN] 2022/02/09 - 15:24:27 | 200 |     84.5789ms |             ::1 | GET      "/sellpump/api/produk/v1/khusus/getkhusus"
+[GIN] 2022/02/09 - 15:25:02 | 200 |    283.8552ms |             ::1 | POST     "/sellpump/api/produk/v1/produk_khusus/create"
+[GIN] 2022/02/09 - 15:25:18 | 200 |    297.5628ms |             ::1 | POST     "/sellpump/api/produk/v1/produk_khusus/create"
+[GIN] 2022/02/09 - 15:25:56 | 200 |    288.9426ms |             ::1 | POST     "/sellpump/api/produk/v1/produk_khusus/create"
+[GIN] 2022/02/09 - 15:26:27 | 200 |     381.181ms |             ::1 | POST     "/sellpump/api/produk/v1/produk_khusus/create"
+[GIN] 2022/02/09 - 15:26:35 | 200 |    1.1294107s |             ::1 | GET      "/sellpump/api/produk/v1/produk_khusus/get_produk_khusus"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/produk/getproduk --> produk_microservice/controllers.(*Produk).GetDataProduk-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/produk/create --> produk_microservice/controllers.(*Produk).ProdukCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/update --> produk_microservice/controllers.(*Produk).ProdukUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/delete --> produk_microservice/controllers.(*Produk).ProdukDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/artikel/getartikel --> produk_microservice/controllers.(*Produk).GetDataArtikel-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/artikel/create --> produk_microservice/controllers.(*Produk).ArtikelCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/update --> produk_microservice/controllers.(*Produk).ArtikelUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/delete --> produk_microservice/controllers.(*Produk).ArtikelDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/khusus/getkhusus --> produk_microservice/controllers.(*Produk).GetDataKhusus-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/khusus/create --> produk_microservice/controllers.(*Produk).KhususCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/khusus/delete --> produk_microservice/controllers.(*Produk).KhususDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/produk_khusus/get_produk_khusus --> produk_microservice/controllers.(*Produk).GetDataProdukKhusus-fm (6 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/produk_khusus/create --> produk_microservice/controllers.(*Produk).ProdukKhususCreate-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2202
+[GIN] 2022/02/09 - 15:47:10 | 200 |    992.4141ms |             ::1 | GET      "/sellpump/api/produk/v1/khusus/getkhusus"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/produk/getproduk --> produk_microservice/controllers.(*Produk).GetDataProduk-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/produk/create --> produk_microservice/controllers.(*Produk).ProdukCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/update --> produk_microservice/controllers.(*Produk).ProdukUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/delete --> produk_microservice/controllers.(*Produk).ProdukDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/artikel/getartikel --> produk_microservice/controllers.(*Produk).GetDataArtikel-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/artikel/create --> produk_microservice/controllers.(*Produk).ArtikelCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/update --> produk_microservice/controllers.(*Produk).ArtikelUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/delete --> produk_microservice/controllers.(*Produk).ArtikelDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/khusus/getkhusus --> produk_microservice/controllers.(*Produk).GetDataKhusus-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/khusus/create --> produk_microservice/controllers.(*Produk).KhususCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/khusus/delete --> produk_microservice/controllers.(*Produk).KhususDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/produk_khusus/get_produk_khusus --> produk_microservice/controllers.(*Produk).GetDataProdukKhusus-fm (6 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/produk_khusus/create --> produk_microservice/controllers.(*Produk).ProdukKhususCreate-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2202
+[GIN] 2022/02/09 - 15:53:31 | 200 |     656.457ms |             ::1 | GET      "/sellpump/api/produk/v1/khusus/getkhusus"
+[GIN] 2022/02/09 - 15:55:54 | 200 |    372.6862ms |             ::1 | GET      "/sellpump/api/produk/v1/khusus/getkhusus?id_khusus=4w9l287x-c6do-fmux-x96m-caq343q5eg6w"
+[GIN] 2022/02/09 - 15:56:18 | 200 |    693.1557ms |             ::1 | GET      "/sellpump/api/produk/v1/khusus/getkhusus?id_user=hcf10ifo-yghd-hwvq-1ije-lbvwvqy5nw6x"
+[GIN] 2022/02/09 - 15:56:39 | 200 |    128.3823ms |             ::1 | GET      "/sellpump/api/produk/v1/khusus/getkhusus?id_user=hcf10ifo-yghd-hwvq-1ije-lbvwvqy5nw6"
+[GIN] 2022/02/09 - 15:56:45 | 200 |    970.2336ms |             ::1 | GET      "/sellpump/api/produk/v1/khusus/getkhusus?id_user=hcf10ifo-yghd-hwvq-1ije-lbvwvqy5nw6x"
+[GIN] 2022/02/09 - 15:56:50 | 200 |    401.8988ms |             ::1 | GET      "/sellpump/api/produk/v1/khusus/getkhusus?limit=1&id_user=hcf10ifo-yghd-hwvq-1ije-lbvwvqy5nw6x"
+[GIN] 2022/02/09 - 15:56:58 | 200 |    1.1337394s |             ::1 | GET      "/sellpump/api/produk/v1/khusus/getkhusus?id_user=hcf10ifo-yghd-hwvq-1ije-lbvwvqy5nw6x"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/produk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/produk/getproduk --> produk_microservice/controllers.(*Produk).GetDataProduk-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/produk/create --> produk_microservice/controllers.(*Produk).ProdukCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/update --> produk_microservice/controllers.(*Produk).ProdukUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/produk/delete --> produk_microservice/controllers.(*Produk).ProdukDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/artikel/getartikel --> produk_microservice/controllers.(*Produk).GetDataArtikel-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/artikel/create --> produk_microservice/controllers.(*Produk).ArtikelCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/update --> produk_microservice/controllers.(*Produk).ArtikelUpdate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/artikel/delete --> produk_microservice/controllers.(*Produk).ArtikelDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/khusus/getkhusus --> produk_microservice/controllers.(*Produk).GetDataKhusus-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/khusus/create --> produk_microservice/controllers.(*Produk).KhususCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/produk/v1/khusus/delete --> produk_microservice/controllers.(*Produk).KhususDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/produk/v1/produk_khusus/get_produk_khusus --> produk_microservice/controllers.(*Produk).GetDataProdukKhusus-fm (6 handlers)
+[GIN-debug] POST   /sellpump/api/produk/v1/produk_khusus/create --> produk_microservice/controllers.(*Produk).ProdukKhususCreate-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2202

@@ -58,7 +58,6 @@ func (m *Produk) ProdukCreate(params models.CreateProduk) (models.ProdukCreate, 
 	return insertproduk, nil
 }
 
-
 func (m *Produk) ProdukUpdate(params models.UpdateProduk) ([]models.ProdukGet, error) {
 
 	produk := models.ProdukUpdate{}
@@ -294,4 +293,143 @@ func (m *Produk) ArtikelDelete(params models.DeleteArtikel) (models.DeleteArtike
 
 	return artikel, nil
 
+}
+
+func (m *Produk) KhususCreate(params models.CreateKhusus) (models.KhususCreate, error) {
+
+	insertkhusus := models.KhususCreate{}
+
+	insertkhusus.IdKhusus = m.helper.StringWithCharset()
+	insertkhusus.IdUser = params.IdUser
+	insertkhusus.NamaKhusus = params.NamaKhusus
+	insertkhusus.HargaKhusus = params.HargaKhusus
+	insertkhusus.HargaAsli = params.HargaAsli
+	insertkhusus.Diskon = params.Diskon
+	insertkhusus.BeratKhusus = params.BeratKhusus
+	insertkhusus.DeskripsiKhusus = params.DeskripsiKhusus
+	insertkhusus.CreatedAt = m.helper.GetTimeNow()
+
+	err := databases.DatabaseSellPump.DB.Table("mst_produk_khusus").Create(&insertkhusus).Error
+
+	if err != nil {
+		return models.KhususCreate{}, err
+	}
+
+	return insertkhusus, nil
+}
+
+func (m *Produk) KhususGet(params models.GetKhusus) ([]models.KhususGet, error) {
+
+	khusus := []models.KhususGet{}
+	getProdukKhusus := models.GetProdukKhusus{}
+
+	err := databases.DatabaseSellPump.DB.Table("mst_produk_khusus").Select("mst_produk_khusus.*").Order("mst_produk_khusus.created_at desc")
+
+	if params.IdUser != "" {
+		err = err.Where("mst_produk_khusus.id_user = ?", params.IdUser)
+	}
+	if params.IdKhusus != "" {
+		err = err.Where("mst_produk_khusus.id_khusus = ?", params.IdKhusus)
+	}
+	if params.Limit != nil {
+		err = err.Limit(*params.Limit)
+	}
+	if params.Offset != nil {
+		err = err.Offset(*params.Offset)
+	}
+
+	err = err.Find(&khusus)
+	errx := err.Error
+
+	if errx != nil {
+		return []models.KhususGet{}, errx
+	}
+
+	for i, _ := range khusus {
+
+		getProdukKhusus.IdKhusus = khusus[i].IdKhusus
+		khusus[i].ProdukKhusus, errx = m.ProdukKhususGet(getProdukKhusus)
+
+		if errx != nil {
+			return []models.KhususGet{}, errx
+		}
+
+	}
+
+	return khusus, nil
+}
+
+func (m *Produk) KhususDelete(params models.DeleteKhusus) (models.DeleteKhusus, error) {
+
+	khusus := models.DeleteKhusus{}
+
+	khusus.DeletedAt = m.helper.GetTimeNow()
+
+	err := databases.DatabaseSellPump.DB.Table("mst_produk_khusus").Where("id_khusus = ?", params.IdKhusus).Update(&khusus).Error
+
+	if err != nil {
+		return models.DeleteKhusus{}, err
+	}
+
+	return khusus, nil
+
+}
+
+func (m *Produk) ProdukKhususCreate(params models.CreateProdukKhusus) (models.ProdukKhususCreate, error) {
+
+	insertprodukkhusus := models.ProdukKhususCreate{}
+
+	insertprodukkhusus.IdProdukKhusus = m.helper.StringWithCharset()
+	insertprodukkhusus.IdKhusus = params.IdKhusus
+	insertprodukkhusus.IdProduk = params.IdProduk
+	insertprodukkhusus.CreatedAt = m.helper.GetTimeNow()
+
+	err := databases.DatabaseSellPump.DB.Table("produk_khusus").Create(&insertprodukkhusus).Error
+
+	if err != nil {
+		return models.ProdukKhususCreate{}, err
+	}
+
+	return insertprodukkhusus, nil
+}
+
+func (m *Produk) ProdukKhususGet(params models.GetProdukKhusus) ([]models.ProdukKhususGet, error) {
+
+	produkkhusus := []models.ProdukKhususGet{}
+	getProduk := models.GetProduk{}
+
+	err := databases.DatabaseSellPump.DB.Table("produk_khusus").Select("produk_khusus.*").Order("produk_khusus.created_at desc")
+
+	if params.IdProdukKhusus != "" {
+		err = err.Where("produk_khusus.id_produk_khusus = ?", params.IdProdukKhusus)
+	}
+	if params.IdKhusus != "" {
+		err = err.Where("produk_khusus.id_khusus = ?", params.IdKhusus)
+	}
+	if params.Limit != nil {
+		err = err.Limit(*params.Limit)
+	}
+	if params.Offset != nil {
+		err = err.Offset(*params.Offset)
+	}
+
+	err = err.Find(&produkkhusus)
+	errx := err.Error
+
+	if errx != nil {
+		return []models.ProdukKhususGet{}, errx
+	}
+
+	for i, _ := range produkkhusus {
+
+		getProduk.IdProduk = produkkhusus[i].IdProduk
+		produkkhusus[i].Produk, errx = m.ProdukGet(getProduk)
+
+		if errx != nil {
+			return []models.ProdukKhususGet{}, errx
+		}
+
+	}
+
+	return produkkhusus, nil
 }

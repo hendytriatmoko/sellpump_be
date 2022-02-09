@@ -151,10 +151,88 @@ type UpdateArtikel struct {
 	GambarArtikel    	*multipart.FileHeader `json:"gambar_artikel" form:"gambar_artikel"`
 	DeskripsiArtikel    string `json:"deskripsi_artikel" form:"deskripsi_artikel"`
 }
+
 type ArtikelUpdate struct {
 	IdArtikel			string `json:"id_artikel" form:"id_artikel"`
 	JudulArtikel      	string `json:"judul_artikel" form:"judul_artikel"`
 	GambarArtikel    	*string `json:"gambar_artikel" form:"gambar_artikel"`
 	DeskripsiArtikel    string `json:"deskripsi_artikel" form:"deskripsi_artikel"`
 	UpdatedAt        	string `json:"updated_at" form:"updated_at"`
+}
+
+type CreateKhusus struct {
+	IdUser       		string `json:"id_user" form:"id_user"`
+	NamaKhusus      	string `json:"nama_khusus" form:"nama_khusus"`
+	HargaKhusus    		float64 `json:"harga_khusus" form:"harga_khusus"`
+	BeratKhusus     	string `json:"berat_khusus" form:"berat_khusus"`
+	HargaAsli    		float64 `json:"harga_asli" form:"harga_asli"`
+	Diskon	    		float64 `json:"diskon" form:"diskon"`
+	DeskripsiKhusus 	string `json:"deskripsi_khusus" form:"deskripsi_khusus"`
+	CreatedAt        	string `json:"created_at" form:"created_at"`
+}
+
+type KhususCreate struct {
+	IdKhusus			string `json:"id_khusus" form:"id_khusus"`
+	IdUser       		string `json:"id_user" form:"id_user"`
+	NamaKhusus      	string `json:"nama_khusus" form:"nama_khusus"`
+	HargaKhusus    		float64 `json:"harga_khusus" form:"harga_khusus"`
+	HargaAsli    		float64 `json:"harga_asli" form:"harga_asli"`
+	Diskon	    		float64 `json:"diskon" form:"diskon"`
+	BeratKhusus     	string `json:"berat_khusus" form:"berat_khusus"`
+	DeskripsiKhusus 	string `json:"deskripsi_khusus" form:"deskripsi_khusus"`
+	CreatedAt        	string `json:"created_at" form:"created_at"`
+}
+
+type GetKhusus struct {
+	IdKhusus			string `json:"id_khusus" form:"id_khusus"`
+	IdUser       		string `json:"id_user" form:"id_user"`
+	Limit     			*int64 `json:"limit" form:"limit"`
+	Offset    			*int64 `json:"offset" form:"offset"`
+}
+
+
+type KhususGet struct {
+	IdKhusus			string `json:"id_khusus" form:"id_khusus"`
+	IdUser       		string `json:"id_user" form:"id_user"`
+	NamaKhusus      	string `json:"nama_khusus" form:"nama_khusus"`
+	HargaKhusus    		float64 `json:"harga_khusus" form:"harga_khusus"`
+	BeratKhusus     	string `json:"berat_khusus" form:"berat_khusus"`
+	DeskripsiKhusus 	string `json:"deskripsi_khusus" form:"deskripsi_khusus"`
+	ProdukKhusus		[]ProdukKhususGet `json:"produk_khusus" form:"produk_khusus"`
+	CreatedAt        	string `json:"created_at" form:"created_at"`
+	UpdatedAt        	string `json:"updated_at" form:"updated_at"`
+}
+
+type DeleteKhusus struct {
+	IdKhusus			string `json:"id_khusus" form:"id_khusus"`
+	DeletedAt        	string `json:"deleted_at" form:"deleted_at"`
+}
+
+type CreateProdukKhusus struct {
+	IdKhusus			string `json:"id_khusus" form:"id_khusus"`
+	IdProduk       		string `json:"id_produk" form:"id_produk"`
+	CreatedAt        	string `json:"created_at" form:"created_at"`
+}
+
+type ProdukKhususCreate struct {
+	IdProdukKhusus		string `json:"id_produk_khusus" form:"id_produk_khusus"`
+	IdKhusus			string `json:"id_khusus" form:"id_khusus"`
+	IdProduk       		string `json:"id_produk" form:"id_produk"`
+	CreatedAt        	string `json:"created_at" form:"created_at"`
+}
+
+type GetProdukKhusus struct {
+	IdProdukKhusus		string `json:"id_produk_khusus" form:"id_produk_khusus"`
+	IdKhusus			string `json:"id_khusus" form:"id_khusus"`
+	Limit     			*int64 `json:"limit" form:"limit"`
+	Offset    			*int64 `json:"offset" form:"offset"`
+}
+
+type ProdukKhususGet struct {
+	IdProdukKhusus		string `json:"id_produk_khusus" form:"id_produk_khusus"`
+	IdKhusus			string `json:"id_khusus" form:"id_khusus"`
+	IdProduk       		string `json:"id_produk" form:"id_produk"`
+	Produk				[]ProdukGet `json:"produk" form:"produk"`
+	CreatedAt          string `json:"created_at" form:"created_at"`
+	UpdatedAt          string `json:"updated_at" form:"updated_at"`
 }

@@ -132,6 +132,26 @@ func main() {
 				authArtikelEP.PUT("/update", produk.ArtikelUpdate)
 				authArtikelEP.PUT("/delete", produk.ArtikelDelete)
 			}
+
+			khususEP := v1.Group("khusus")
+			{
+				authKhususEP := khususEP.Group("")
+				authKhususEP.Use(middleware.Auth)
+
+				khususEP.GET("/getkhusus", produk.GetDataKhusus)
+				authKhususEP.POST("/create", produk.KhususCreate)
+				//authKhususEP.PUT("/update", produk.KhususUpdate)
+				authKhususEP.PUT("/delete", produk.KhususDelete)
+			}
+
+			produkkhususEP := v1.Group("produk_khusus")
+			{
+				authProdukKhususEP := produkkhususEP.Group("")
+				authProdukKhususEP.Use(middleware.Auth)
+
+				authProdukKhususEP.GET("/get_produk_khusus", produk.GetDataProdukKhusus)
+				authProdukKhususEP.POST("/create", produk.ProdukKhususCreate)
+			}
 		}
 
 	}
