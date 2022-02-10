@@ -38,6 +38,9 @@ type GetUser struct {
 	IdUser       		string `json:"id_user" form:"id_user"`
 	Email      		string `json:"email" form:"email"`
 	Password    string `json:"password" form:"password"`
+	Search       		string `json:"search" form:"search"`
+	Limit     			*int64 `json:"limit" form:"limit"`
+	Offset    			*int64 `json:"offset" form:"offset"`
 }
 
 type UserGet struct {

@@ -109,6 +109,15 @@ func (m *User) UserGet(params models.GetUser) ([]models.UserGet, error) {
 	if params.Email != "" {
 		err = err.Where("email = ?", params.Email)
 	}
+	if params.Search != "" {
+		err = err.Where("nama ilike '%"+params.Search+"%' OR email ilike '%"+params.Search+"%'")
+	}
+	if params.Limit != nil {
+		err = err.Limit(*params.Limit)
+	}
+	if params.Offset != nil {
+		err = err.Offset(*params.Offset)
+	}
 
 	err = err.Find(&user)
 
