@@ -214,6 +214,7 @@ type CreateProdukKhusus struct {
 	IdKhusus			string `json:"id_khusus" form:"id_khusus"`
 	IdProduk       		string `json:"id_produk" form:"id_produk"`
 	Kuantitas       	string  `json:"kuantitas" form:"kuantitas"`
+	Harga		       	string  `json:"harga" form:"harga"`
 	CreatedAt        	string `json:"created_at" form:"created_at"`
 }
 
@@ -222,6 +223,7 @@ type ProdukKhususCreate struct {
 	IdKhusus			string `json:"id_khusus" form:"id_khusus"`
 	IdProduk       		string `json:"id_produk" form:"id_produk"`
 	Kuantitas       	string  `json:"kuantitas" form:"kuantitas"`
+	Harga		       	string  `json:"harga" form:"harga"`
 	CreatedAt        	string `json:"created_at" form:"created_at"`
 }
 
@@ -237,6 +239,7 @@ type ProdukKhususGet struct {
 	IdKhusus			string `json:"id_khusus" form:"id_khusus"`
 	IdProduk       		string `json:"id_produk" form:"id_produk"`
 	Kuantitas       	string  `json:"kuantitas" form:"kuantitas"`
+	Harga		       	string  `json:"harga" form:"harga"`
 	Produk				[]ProdukGet `json:"produk" form:"produk"`
 	CreatedAt          	string `json:"created_at" form:"created_at"`
 	UpdatedAt          	string `json:"updated_at" form:"updated_at"`

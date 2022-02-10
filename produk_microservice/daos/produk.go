@@ -383,6 +383,7 @@ func (m *Produk) ProdukKhususCreate(params models.CreateProdukKhusus) (models.Pr
 	insertprodukkhusus.IdKhusus = params.IdKhusus
 	insertprodukkhusus.IdProduk = params.IdProduk
 	insertprodukkhusus.Kuantitas = params.Kuantitas
+	insertprodukkhusus.Harga = params.Harga
 	insertprodukkhusus.CreatedAt = m.helper.GetTimeNow()
 
 	err := databases.DatabaseSellPump.DB.Table("produk_khusus").Create(&insertprodukkhusus).Error
