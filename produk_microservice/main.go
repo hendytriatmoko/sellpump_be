@@ -152,6 +152,15 @@ func main() {
 				authProdukKhususEP.GET("/get_produk_khusus", produk.GetDataProdukKhusus)
 				authProdukKhususEP.POST("/create", produk.ProdukKhususCreate)
 			}
+
+			ratingEP := v1.Group("rating")
+			{
+				authRatingEP := ratingEP.Group("")
+				authRatingEP.Use(middleware.Auth)
+
+				ratingEP.GET("/getrating", produk.GetDataRating)
+				authRatingEP.POST("/create", produk.RatingCreate)
+			}
 		}
 
 	}

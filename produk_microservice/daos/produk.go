@@ -435,3 +435,56 @@ func (m *Produk) ProdukKhususGet(params models.GetProdukKhusus) ([]models.Produk
 
 	return produkkhusus, nil
 }
+
+func (m *Produk) RatingCreate(params models.CreateRating) (models.RatingCreate, error) {
+
+	rating := models.RatingCreate{}
+
+	rating.IdRating = m.helper.StringWithCharset()
+	rating.IdProduk = params.IdProduk
+	rating.IdUser = params.IdUser
+	rating.Nama = params.Nama
+	rating.Komentar = params.Komentar
+	rating.Rating = params.Rating
+	rating.CreatedAt = m.helper.GetTimeNow()
+
+
+	err := databases.DatabaseSellPump.DB.Table("rating").Create(&rating).Error
+
+	if err != nil {
+		return models.RatingCreate{}, err
+	}
+
+	return rating, nil
+}
+
+func (m *Produk) RatingGet(params models.GetRating) ([]models.RatingGet, error) {
+
+	rating := []models.RatingGet{}
+
+	err := databases.DatabaseSellPump.DB.Table("rating").Order("created_at desc")
+
+	if params.IdRating != "" {
+		err = err.Where("id_rating = ?", params.IdRating)
+	}
+	if params.IdProduk != "" {
+		err = err.Where("id_produk = ?", params.IdProduk)
+	}
+	if params.Limit != nil {
+		err = err.Limit(*params.Limit)
+	}
+	if params.Offset != nil {
+		err = err.Offset(*params.Offset)
+	}
+
+	err = err.Find(&rating)
+
+	errx := err.Error
+
+
+	if errx != nil {
+		return []models.RatingGet{}, errx
+	}
+
+	return rating, nil
+}

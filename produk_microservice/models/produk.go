@@ -244,3 +244,41 @@ type ProdukKhususGet struct {
 	CreatedAt          	string `json:"created_at" form:"created_at"`
 	UpdatedAt          	string `json:"updated_at" form:"updated_at"`
 }
+
+type CreateRating struct {
+	IdUser				string `json:"id_user" form:"id_user"`
+	IdProduk       		string `json:"id_produk" form:"id_produk"`
+	Nama        		string `json:"nama" form:"nama"`
+	Komentar        	string `json:"komentar" form:"komentar"`
+	Rating        		string `json:"rating" form:"rating"`
+	CreatedAt        	string `json:"created_at" form:"created_at"`
+}
+
+type RatingCreate struct {
+	IdRating			string `json:"id_rating" form:"id_rating"`
+	IdUser				string `json:"id_user" form:"id_user"`
+	IdProduk       		string `json:"id_produk" form:"id_produk"`
+	Nama        		string `json:"nama" form:"nama"`
+	Komentar        	string `json:"komentar" form:"komentar"`
+	Rating        		string `json:"rating" form:"rating"`
+	CreatedAt        	string `json:"created_at" form:"created_at"`
+}
+
+type GetRating struct {
+	IdRating			string `json:"id_rating" form:"id_rating"`
+	IdProduk       		string `json:"id_produk" form:"id_produk"`
+	Limit     			*int64 `json:"limit" form:"limit"`
+	Offset    			*int64 `json:"offset" form:"offset"`
+}
+
+type RatingGet struct {
+	IdRating			string `json:"id_rating" form:"id_rating"`
+	IdUser				string `json:"id_user" form:"id_user"`
+	IdProduk       		string `json:"id_produk" form:"id_produk"`
+	Nama        		string `json:"nama" form:"nama"`
+	Komentar        	string `json:"komentar" form:"komentar"`
+	Rating        		string `json:"rating" form:"rating"`
+	CreatedAt        	string `json:"created_at" form:"created_at"`
+	UpdatedAt        	string `json:"updated_at" form:"updated_at"`
+	DeletedAt        	string `json:"deleted_at" form:"deleted_at"`
+}
