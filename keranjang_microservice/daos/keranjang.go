@@ -213,7 +213,7 @@ func (m *Keranjang) PesananGet(params models.GetPesanan) ([]models.PesananGet, e
 
 	pesanan := []models.PesananGet{}
 
-	err := databases.DatabaseSellPump.DB.Table("pesanan").Select("pesanan.*,k.nama_produk,k.harga_produk,k.deskripsi_produk,k.gambar_produk,k.berat_produk").
+	err := databases.DatabaseSellPump.DB.Table("pesanan").Select("pesanan.*,k.nama_produk,k.harga_produk,k.deskripsi_produk,k.gambar_produk,k.berat_produk,k.harga_diskon,k.diskon,k.bool_diskon").
 		Joins("join produk k on k.id_produk = pesanan.id_produk")
 
 	if params.IdUser != "" {

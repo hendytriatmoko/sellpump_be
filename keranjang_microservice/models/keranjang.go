@@ -94,6 +94,9 @@ type PesananGet struct {
 	Kuantitas       string  `json:"kuantitas" form:"kuantitas"`
 	Harga           float64 `json:"harga" form:"harga"`
 	Berat           string  `json:"berat" form:"berat"`
+	HargaDiskon		string `json:"harga_diskon" form:"harga_diskon"`
+	Diskon			string `json:"diskon" form:"diskon"`
+	BoolDiskon		string `json:"bool_diskon" form:"bool_diskon"`
 	CreatedAt       string  `json:"created_at" form:"created_at"`
 }
 
