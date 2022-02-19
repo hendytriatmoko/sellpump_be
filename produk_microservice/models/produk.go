@@ -297,3 +297,31 @@ type RatingGet struct {
 	UpdatedAt        	string `json:"updated_at" form:"updated_at"`
 	DeletedAt        	string `json:"deleted_at" form:"deleted_at"`
 }
+
+type CreateFile struct {
+	NamaFile	      	string `json:"nama_file" form:"nama_file"`
+	File		    	*multipart.FileHeader `json:"file" form:"file"`
+	CreatedAt        	string `json:"created_at" form:"created_at"`
+}
+
+type FileCreate struct {
+	IdFile				string `json:"id_file" form:"id_file"`
+	NamaFile	      	string `json:"nama_file" form:"nama_file"`
+	File		    	string `json:"file" form:"file"`
+	CreatedAt        	string `json:"created_at" form:"created_at"`
+}
+
+type GetFile struct {
+	IdFile				string `json:"id_file" form:"id_file"`
+	Search       		string `json:"search" form:"search"`
+	Limit     			*int64 `json:"limit" form:"limit"`
+	Offset    			*int64 `json:"offset" form:"offset"`
+}
+
+type FileGet struct {
+	IdFile				string `json:"id_file" form:"id_file"`
+	NamaFile	      	string `json:"nama_file" form:"nama_file"`
+	File		    	string `json:"file" form:"file"`
+	CreatedAt        	string `json:"created_at" form:"created_at"`
+	DeletedAt        	string `json:"deleted_at" form:"deleted_at"`
+}

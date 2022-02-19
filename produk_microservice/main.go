@@ -161,6 +161,14 @@ func main() {
 				ratingEP.GET("/getrating", produk.GetDataRating)
 				authRatingEP.POST("/create", produk.RatingCreate)
 			}
+			fileEP := v1.Group("file")
+			{
+				authFileEP := fileEP.Group("")
+				authFileEP.Use(middleware.Auth)
+
+				fileEP.GET("/getfile", produk.GetDataFile)
+				authFileEP.POST("/create", produk.FileCreate)
+			}
 		}
 
 	}

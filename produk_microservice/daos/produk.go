@@ -494,3 +494,66 @@ func (m *Produk) RatingGet(params models.GetRating) ([]models.RatingGet, error) 
 
 	return rating, nil
 }
+
+func (m *Produk) FileCreate(params models.CreateFile) (models.FileCreate, error) {
+
+	file := models.FileCreate{}
+
+	path := "/file/"
+	pathFile := "./files/"+path
+	ext := filepath.Ext(params.File.Filename)
+	filename := strings.Replace(params.NamaFile," ","_", -1)+ext
+
+	os.MkdirAll(pathFile, 0777)
+	errx := m.helper.SaveUploadedFile(params.File, pathFile+filename)
+	if errx != nil{
+		return models.FileCreate{},errx
+	}
+
+	url := string(filepath.FromSlash(path+filename))
+
+	file.IdFile = m.helper.StringWithCharset()
+	file.NamaFile = params.NamaFile
+	file.File = url
+	file.CreatedAt = m.helper.GetTimeNow()
+
+
+	err := databases.DatabaseSellPump.DB.Table("file").Create(&file).Error
+
+	if err != nil {
+		return models.FileCreate{}, err
+	}
+
+	return file, nil
+}
+
+func (m *Produk) FileGet(params models.GetFile) ([]models.FileGet, error) {
+
+	file := []models.FileGet{}
+
+	err := databases.DatabaseSellPump.DB.Table("file").Order("created_at desc")
+
+	if params.IdFile != "" {
+		err = err.Where("id_file = ?", params.IdFile)
+	}
+	if params.Search != "" {
+		err = err.Where("nama_file ilike '%"+params.Search+"%'")
+	}
+	if params.Limit != nil {
+		err = err.Limit(*params.Limit)
+	}
+	if params.Offset != nil {
+		err = err.Offset(*params.Offset)
+	}
+
+	err = err.Find(&file)
+
+	errx := err.Error
+
+
+	if errx != nil {
+		return []models.FileGet{}, errx
+	}
+
+	return file, nil
+}
