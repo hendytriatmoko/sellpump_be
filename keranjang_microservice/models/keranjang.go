@@ -24,6 +24,9 @@ type KeranjangGet struct {
 	DeskripsiProduk string  `json:"deskripsi_produk" form:"deskripsi_produk"`
 	GambarProduk    string  `json:"gambar_produk" form:"gambar_produk"`
 	BeratProduk     string  `json:"berat_produk" form:"berat_produk"`
+	HargaDiskon		string `json:"harga_diskon" form:"harga_diskon"`
+	Diskon			string `json:"diskon" form:"diskon"`
+	BoolDiskon		string `json:"bool_diskon" form:"bool_diskon"`
 	CreatedAt       string  `json:"created_at" form:"created_at"`
 	UpdatedAt       string  `json:"updated_at" form:"updated_at"`
 	DeletedAt       string  `json:"deleted_at" form:"deleted_at"`
