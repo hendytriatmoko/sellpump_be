@@ -17,6 +17,9 @@ type CreateProduk struct {
 	LinkTokopedia  		string `json:"link_tokopedia" form:"link_tokopedia"`
 	LinkBukalapak	    string `json:"link_bukalapak" form:"link_bukalapak"`
 	GambarProduk      	*multipart.FileHeader `json:"gambar_produk" form:"gambar_produk"`
+	HargaDiskon		    string `json:"harga_diskon" form:"harga_diskon"`
+	Diskon			    string `json:"diskon" form:"diskon"`
+	BoolDiskon		    string `json:"bool_diskon" form:"bool_diskon"`
 	CreatedAt        	string `json:"created_at" form:"created_at"`
 }
 type ProdukCreate struct {
@@ -34,6 +37,9 @@ type ProdukCreate struct {
 	LinkTokopedia  		string `json:"link_tokopedia" form:"link_tokopedia"`
 	LinkBukalapak	    string `json:"link_bukalapak" form:"link_bukalapak"`
 	GambarProduk      	string `json:"gambar_produk" form:"gambar_produk"`
+	HargaDiskon		    string `json:"harga_diskon" form:"harga_diskon"`
+	Diskon			    string `json:"diskon" form:"diskon"`
+	BoolDiskon		    string `json:"bool_diskon" form:"bool_diskon"`
 	CreatedAt        	string `json:"created_at" form:"created_at"`
 }
 type UpdateProduk struct {
@@ -51,6 +57,9 @@ type UpdateProduk struct {
 	GambarProduk      	*multipart.FileHeader `json:"gambar_produk" form:"gambar_produk"`
 	LinkTokopedia  		string `json:"link_tokopedia" form:"link_tokopedia"`
 	LinkBukalapak	    string `json:"link_bukalapak" form:"link_bukalapak"`
+	HargaDiskon		    string `json:"harga_diskon" form:"harga_diskon"`
+	Diskon			    string `json:"diskon" form:"diskon"`
+	BoolDiskon		    string `json:"bool_diskon" form:"bool_diskon"`
 }
 type ProdukUpdate struct {
 	IdProduk			string `json:"id_produk" form:"id_produk"`
@@ -67,6 +76,9 @@ type ProdukUpdate struct {
 	GambarProduk      	*string `json:"gambar_produk" form:"gambar_produk"`
 	LinkTokopedia  		string `json:"link_tokopedia" form:"link_tokopedia"`
 	LinkBukalapak	    string `json:"link_bukalapak" form:"link_bukalapak"`
+	HargaDiskon		    string `json:"harga_diskon" form:"harga_diskon"`
+	Diskon			    string `json:"diskon" form:"diskon"`
+	BoolDiskon		    string `json:"bool_diskon" form:"bool_diskon"`
 	UpdatedAt        	string `json:"updated_at" form:"updated_at"`
 }
 
@@ -98,6 +110,9 @@ type ProdukGet struct {
 	GambarProduk      	string `json:"gambar_produk" form:"gambar_produk"`
 	LinkTokopedia  		string `json:"link_tokopedia" form:"link_tokopedia"`
 	LinkBukalapak	    string `json:"link_bukalapak" form:"link_bukalapak"`
+	HargaDiskon		    string `json:"harga_diskon" form:"harga_diskon"`
+	Diskon			    string `json:"diskon" form:"diskon"`
+	BoolDiskon		    string `json:"bool_diskon" form:"bool_diskon"`
 	CreatedAt        	string `json:"created_at" form:"created_at"`
 	UpdatedAt        	string `json:"updated_at" form:"updated_at"`
 	DeletedAt        	string `json:"deleted_at" form:"deleted_at"`

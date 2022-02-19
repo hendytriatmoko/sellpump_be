@@ -47,6 +47,9 @@ func (m *Produk) ProdukCreate(params models.CreateProduk) (models.ProdukCreate, 
 	insertproduk.GambarProduk = url
 	insertproduk.LinkTokopedia = params.LinkTokopedia
 	insertproduk.LinkBukalapak = params.LinkBukalapak
+	insertproduk.HargaDiskon = params.HargaDiskon
+	insertproduk.Diskon = params.Diskon
+	insertproduk.BoolDiskon = params.BoolDiskon
 	insertproduk.CreatedAt = m.helper.GetTimeNow()
 
 	err := databases.DatabaseSellPump.DB.Table("produk").Create(&insertproduk).Error
@@ -97,6 +100,9 @@ func (m *Produk) ProdukUpdate(params models.UpdateProduk) ([]models.ProdukGet, e
 	produk.Tayangan = params.Tayangan
 	produk.LinkTokopedia = params.LinkTokopedia
 	produk.LinkBukalapak = params.LinkBukalapak
+	produk.HargaDiskon = params.HargaDiskon
+	produk.Diskon = params.Diskon
+	produk.BoolDiskon = params.BoolDiskon
 	produk.IdKategoriProduk = params.IdKategoriProduk
 
 	err := databases.DatabaseSellPump.DB.Table("produk").Where("id_produk = ?", params.IdProduk).Update(&produk).Error

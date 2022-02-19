@@ -1476,3 +1476,4 @@ Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-
 [GIN] 2022/02/17 - 14:30:49 | 200 |     81.1634ms |             ::1 | GET      "/sellpump/api/produk/v1/rating/getrating"
 [GIN] 2022/02/17 - 14:34:43 | 200 |    275.7753ms |             ::1 | POST     "/sellpump/api/produk/v1/rating/create"
 [GIN] 2022/02/17 - 14:34:50 | 200 |     96.5811ms |             ::1 | GET      "/sellpump/api/produk/v1/rating/getrating"
+[GIN] 2022/02/17 - 15:23:06 | 200 |    365.2371ms |             ::1 | GET      "/sellpump/api/produk/v1/rating/getrating"
