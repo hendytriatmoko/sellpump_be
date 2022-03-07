@@ -267,13 +267,20 @@ func (m *Keranjang) InvoiceCreate(params models.CreateInvoice) (models.CreateInv
 	return invoice, nil
 }
 
-func (m *Keranjang) InvoiceGet(params models.GetInvoice) ([]models.InvoiceGet, error) {
+func (m *Keranjang) InvoiceGet(params models.GetInvoice) ([]models.InvoiceGet,int64, error) {
 
+	var count int64
 	invoice := []models.InvoiceGet{}
 	getPesanan := models.GetPesanan{}
 
 	err := databases.DatabaseSellPump.DB.Table("invoice").Select("invoice.*").Order("invoice.created_at desc")
 
+	if params.IdStatusPembayaran != "" {
+		err = err.Where("invoice.id_status_pembayaran = ?", params.IdStatusPembayaran)
+	}
+	if params.IdStatusPengiriman != "" {
+		err = err.Where("invoice.id_status_pengiriman = ?", params.IdStatusPengiriman)
+	}
 	if params.IdUser != "" {
 		err = err.Where("invoice.id_user = ?", params.IdUser)
 	}
@@ -283,6 +290,7 @@ func (m *Keranjang) InvoiceGet(params models.GetInvoice) ([]models.InvoiceGet, e
 	if params.CreatedAt != "" {
 		err = err.Where("invoice.created_at::text like  ?", "%"+params.CreatedAt+"%")
 	}
+	err.Count(&count)
 	if params.Limit != nil {
 		err = err.Limit(*params.Limit)
 	}
@@ -294,7 +302,7 @@ func (m *Keranjang) InvoiceGet(params models.GetInvoice) ([]models.InvoiceGet, e
 	errx := err.Error
 
 	if errx != nil {
-		return []models.InvoiceGet{}, errx
+		return []models.InvoiceGet{}, count, errx
 	}
 
 	for i, _ := range invoice {
@@ -303,16 +311,17 @@ func (m *Keranjang) InvoiceGet(params models.GetInvoice) ([]models.InvoiceGet, e
 		invoice[i].Pesanan, errx = m.PesananGet(getPesanan)
 
 		if errx != nil {
-			return []models.InvoiceGet{}, errx
+			return []models.InvoiceGet{}, count, errx
 		}
 
 	}
 
-	return invoice, nil
+	return invoice,count, nil
 }
 
-func (m *Keranjang) InvoiceUpdate(params models.UpdateInvoice) ([]models.InvoiceGet, error) {
+func (m *Keranjang) InvoiceUpdate(params models.UpdateInvoice) ([]models.InvoiceGet, int64, error) {
 
+	var count int64
 	invoice := models.InvoiceUpdate{}
 	getinvoice := []models.InvoiceGet{}
 
@@ -326,7 +335,7 @@ func (m *Keranjang) InvoiceUpdate(params models.UpdateInvoice) ([]models.Invoice
 		os.MkdirAll(pathImage, 0777)
 		errx := m.helper.SaveUploadedFile(params.BuktiBayar, pathImage+filename)
 		if errx != nil{
-			return []models.InvoiceGet{},errx
+			return []models.InvoiceGet{},count,errx
 		}
 
 		url := string(filepath.FromSlash(path+filename))
@@ -346,15 +355,15 @@ func (m *Keranjang) InvoiceUpdate(params models.UpdateInvoice) ([]models.Invoice
 	err := databases.DatabaseSellPump.DB.Table("invoice").Where("id_invoice = ?", params.IdInvoice).Update(&invoice).Error
 
 	if err != nil {
-		return []models.InvoiceGet{}, err
+		return []models.InvoiceGet{},count, err
 	}
 
 	paraminvoice := models.GetInvoice{}
 	paraminvoice.NoInv = params.NoInv
-	getinvoice,errx := m.InvoiceGet(paraminvoice)
+	getinvoice,count,errx := m.InvoiceGet(paraminvoice)
 	if errx != nil {
-		return []models.InvoiceGet{}, errx
+		return []models.InvoiceGet{}, count, errx
 	}
-	return getinvoice, nil
+	return getinvoice, count, nil
 
 }

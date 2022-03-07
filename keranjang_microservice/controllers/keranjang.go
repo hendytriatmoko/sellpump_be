@@ -383,7 +383,7 @@ func (u *Keranjang) GetDataInvoice(c *gin.Context) {
 		c.JSON(400, response)
 	} else {
 
-		data, err := u.daos.InvoiceGet(params)
+		data, count, err := u.daos.InvoiceGet(params)
 
 		if err != nil {
 			response.ApiStatus = 0
@@ -392,6 +392,7 @@ func (u *Keranjang) GetDataInvoice(c *gin.Context) {
 		} else {
 			response.ApiStatus = 1
 			response.Data = data
+			response.Count = count
 			response.ApiMessage = common.StatusSukses
 			c.JSON(http.StatusOK, response)
 
@@ -419,7 +420,7 @@ func (u *Keranjang) InvoiceUpdate(c *gin.Context) {
 		c.JSON(400, response)
 	} else {
 
-		data, err := u.daos.InvoiceUpdate(params)
+		data,count, err := u.daos.InvoiceUpdate(params)
 
 		if err != nil {
 			response.ApiStatus = 0
@@ -428,6 +429,7 @@ func (u *Keranjang) InvoiceUpdate(c *gin.Context) {
 		} else {
 			response.ApiStatus = 1
 			response.Data = data
+			response.Count = count
 			response.ApiMessage = common.StatusSukses
 			c.JSON(http.StatusOK, response)
 
