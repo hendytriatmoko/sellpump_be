@@ -61,8 +61,9 @@ func (m *Produk) ProdukCreate(params models.CreateProduk) (models.ProdukCreate, 
 	return insertproduk, nil
 }
 
-func (m *Produk) ProdukUpdate(params models.UpdateProduk) ([]models.ProdukGet, error) {
+func (m *Produk) ProdukUpdate(params models.UpdateProduk) ([]models.ProdukGet, int64, error) {
 
+	var count int64
 	produk := models.ProdukUpdate{}
 	getproduk := []models.ProdukGet{}
 
@@ -75,7 +76,7 @@ func (m *Produk) ProdukUpdate(params models.UpdateProduk) ([]models.ProdukGet, e
 		os.MkdirAll(pathImage, 0777)
 		errx := m.helper.SaveUploadedFile(params.GambarProduk, pathImage+filename)
 		if errx != nil{
-			return []models.ProdukGet{},errx
+			return []models.ProdukGet{}, count,errx
 		}
 
 		url := string(filepath.FromSlash(path+filename))
@@ -108,21 +109,22 @@ func (m *Produk) ProdukUpdate(params models.UpdateProduk) ([]models.ProdukGet, e
 	err := databases.DatabaseSellPump.DB.Table("produk").Where("id_produk = ?", params.IdProduk).Update(&produk).Error
 
 	if err != nil {
-		return []models.ProdukGet{}, err
+		return []models.ProdukGet{}, count, err
 	}
 
 	paramproduk := models.GetProduk{}
 	paramproduk.IdProduk = params.IdProduk
-	getproduk,errx := m.ProdukGet(paramproduk)
+	getproduk, count,errx := m.ProdukGet(paramproduk)
 	if errx != nil {
-		return []models.ProdukGet{}, errx
+		return []models.ProdukGet{}, count, errx
 	}
-	return getproduk, nil
+	return getproduk, count, nil
 
 }
 
-func (m *Produk) ProdukGet(params models.GetProduk) ([]models.ProdukGet, error) {
+func (m *Produk) ProdukGet(params models.GetProduk) ([]models.ProdukGet, int64, error) {
 
+	var count int64
 	produk := []models.ProdukGet{}
 
 	err := databases.DatabaseSellPump.DB.Table("produk").Select("produk.*,k.kategori,k.sub_kategori, m.nama_merk, m.gambar_merk").
@@ -139,6 +141,7 @@ func (m *Produk) ProdukGet(params models.GetProduk) ([]models.ProdukGet, error) 
 	if params.SubKategori != "" {
 		err = err.Where("k.sub_kategori = ?", params.SubKategori)
 	}
+	err.Count(&count)
 	if params.Limit != nil {
 		err = err.Limit(*params.Limit)
 	}
@@ -152,10 +155,10 @@ func (m *Produk) ProdukGet(params models.GetProduk) ([]models.ProdukGet, error) 
 
 
 	if errx != nil {
-		return []models.ProdukGet{}, errx
+		return []models.ProdukGet{}, count, errx
 	}
 
-	return produk, nil
+	return produk, count, nil
 }
 
 func (m *Produk) ProdukDelete(params models.DeleteProduk) (models.DeleteProduk, error) {
@@ -324,8 +327,9 @@ func (m *Produk) KhususCreate(params models.CreateKhusus) (models.KhususCreate, 
 	return insertkhusus, nil
 }
 
-func (m *Produk) KhususGet(params models.GetKhusus) ([]models.KhususGet, error) {
+func (m *Produk) KhususGet(params models.GetKhusus) ([]models.KhususGet, int64, error) {
 
+	var count int64
 	khusus := []models.KhususGet{}
 	getProdukKhusus := models.GetProdukKhusus{}
 
@@ -348,21 +352,21 @@ func (m *Produk) KhususGet(params models.GetKhusus) ([]models.KhususGet, error) 
 	errx := err.Error
 
 	if errx != nil {
-		return []models.KhususGet{}, errx
+		return []models.KhususGet{}, count, errx
 	}
 
 	for i, _ := range khusus {
 
 		getProdukKhusus.IdKhusus = khusus[i].IdKhusus
-		khusus[i].ProdukKhusus, errx = m.ProdukKhususGet(getProdukKhusus)
+		khusus[i].ProdukKhusus, count, errx = m.ProdukKhususGet(getProdukKhusus)
 
 		if errx != nil {
-			return []models.KhususGet{}, errx
+			return []models.KhususGet{}, count, errx
 		}
 
 	}
 
-	return khusus, nil
+	return khusus, count, nil
 }
 
 func (m *Produk) KhususDelete(params models.DeleteKhusus) (models.DeleteKhusus, error) {
@@ -401,8 +405,9 @@ func (m *Produk) ProdukKhususCreate(params models.CreateProdukKhusus) (models.Pr
 	return insertprodukkhusus, nil
 }
 
-func (m *Produk) ProdukKhususGet(params models.GetProdukKhusus) ([]models.ProdukKhususGet, error) {
+func (m *Produk) ProdukKhususGet(params models.GetProdukKhusus) ([]models.ProdukKhususGet, int64, error) {
 
+	var count int64
 	produkkhusus := []models.ProdukKhususGet{}
 	getProduk := models.GetProduk{}
 
@@ -425,21 +430,21 @@ func (m *Produk) ProdukKhususGet(params models.GetProdukKhusus) ([]models.Produk
 	errx := err.Error
 
 	if errx != nil {
-		return []models.ProdukKhususGet{}, errx
+		return []models.ProdukKhususGet{}, count, errx
 	}
 
 	for i, _ := range produkkhusus {
 
 		getProduk.IdProduk = produkkhusus[i].IdProduk
-		produkkhusus[i].Produk, errx = m.ProdukGet(getProduk)
+		produkkhusus[i].Produk,count, errx = m.ProdukGet(getProduk)
 
 		if errx != nil {
-			return []models.ProdukKhususGet{}, errx
+			return []models.ProdukKhususGet{}, count, errx
 		}
 
 	}
 
-	return produkkhusus, nil
+	return produkkhusus, count, nil
 }
 
 func (m *Produk) RatingCreate(params models.CreateRating) (models.RatingCreate, error) {

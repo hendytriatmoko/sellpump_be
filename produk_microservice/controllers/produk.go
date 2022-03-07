@@ -65,7 +65,7 @@ func (u *Produk) GetDataProduk(c *gin.Context) {
 		c.JSON(400, response)
 	} else {
 
-		data, err := u.daos.ProdukGet(params)
+		data, count, err := u.daos.ProdukGet(params)
 
 		if err != nil {
 			response.ApiStatus = 0
@@ -74,6 +74,7 @@ func (u *Produk) GetDataProduk(c *gin.Context) {
 		} else {
 			response.ApiStatus = 1
 			response.Data = data
+			response.Count = count
 			response.ApiMessage = common.StatusSukses
 			c.JSON(http.StatusOK, response)
 
@@ -102,7 +103,7 @@ func (u *Produk) ProdukUpdate(c *gin.Context) {
 		c.JSON(400, response)
 	} else {
 
-		data, err := u.daos.ProdukUpdate(params)
+		data, count, err := u.daos.ProdukUpdate(params)
 
 		if err != nil {
 			response.ApiStatus = 0
@@ -111,6 +112,7 @@ func (u *Produk) ProdukUpdate(c *gin.Context) {
 		} else {
 			response.ApiStatus = 1
 			response.Data = data
+			response.Count = count
 			response.ApiMessage = common.StatusSukses
 			c.JSON(http.StatusOK, response)
 
@@ -353,7 +355,7 @@ func (u *Produk) GetDataKhusus(c *gin.Context) {
 		c.JSON(400, response)
 	} else {
 
-		data, err := u.daos.KhususGet(params)
+		data, count, err := u.daos.KhususGet(params)
 
 		if err != nil {
 			response.ApiStatus = 0
@@ -362,6 +364,7 @@ func (u *Produk) GetDataKhusus(c *gin.Context) {
 		} else {
 			response.ApiStatus = 1
 			response.Data = data
+			response.Count = count
 			response.ApiMessage = common.StatusSukses
 			c.JSON(http.StatusOK, response)
 
@@ -461,7 +464,7 @@ func (u *Produk) GetDataProdukKhusus(c *gin.Context) {
 		c.JSON(400, response)
 	} else {
 
-		data, err := u.daos.ProdukKhususGet(params)
+		data, count, err := u.daos.ProdukKhususGet(params)
 
 		if err != nil {
 			response.ApiStatus = 0
@@ -470,6 +473,7 @@ func (u *Produk) GetDataProdukKhusus(c *gin.Context) {
 		} else {
 			response.ApiStatus = 1
 			response.Data = data
+			response.Count = count
 			response.ApiMessage = common.StatusSukses
 			c.JSON(http.StatusOK, response)
 
