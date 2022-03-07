@@ -168,6 +168,7 @@ func main() {
 
 				fileEP.GET("/getfile", produk.GetDataFile)
 				authFileEP.POST("/create", produk.FileCreate)
+				authFileEP.PUT("/delete", produk.FileDelete)
 			}
 		}
 

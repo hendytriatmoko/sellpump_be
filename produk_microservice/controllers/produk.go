@@ -623,3 +623,39 @@ func (u *Produk) GetDataFile(c *gin.Context) {
 	}
 
 }
+
+func (u *Produk) FileDelete(c *gin.Context) {
+
+	params := models.DeleteFile{}
+
+	response := models.Response{}
+
+	err := c.ShouldBind(&params)
+
+	if err != nil {
+		var mess string
+		if err != nil {
+			mess = mess + err.Error()
+		}
+
+		response.ApiMessage = "validation " + mess
+		c.JSON(400, response)
+	} else {
+
+		data, err := u.daos.FileDelete(params)
+
+		if err != nil {
+			response.ApiStatus = 0
+			response.ApiMessage = err.Error()
+			c.JSON(500, response)
+		} else {
+			response.ApiStatus = 1
+			response.Data = data
+			response.ApiMessage = common.StatusSukses
+			c.JSON(http.StatusOK, response)
+
+		}
+
+	}
+
+}

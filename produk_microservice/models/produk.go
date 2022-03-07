@@ -325,3 +325,8 @@ type FileGet struct {
 	CreatedAt        	string `json:"created_at" form:"created_at"`
 	DeletedAt        	string `json:"deleted_at" form:"deleted_at"`
 }
+
+type DeleteFile struct {
+	IdFile				string `json:"id_file" form:"id_file"`
+	DeletedAt        	string `json:"deleted_at" form:"deleted_at"`
+}

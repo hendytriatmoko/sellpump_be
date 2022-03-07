@@ -557,3 +557,19 @@ func (m *Produk) FileGet(params models.GetFile) ([]models.FileGet, error) {
 
 	return file, nil
 }
+
+func (m *Produk) FileDelete(params models.DeleteFile) (models.DeleteFile, error) {
+
+	file := models.DeleteFile{}
+
+	file.DeletedAt = m.helper.GetTimeNow()
+
+	err := databases.DatabaseSellPump.DB.Table("file").Where("id_file = ?", params.IdFile).Update(&file).Error
+
+	if err != nil {
+		return models.DeleteFile{}, err
+	}
+
+	return file, nil
+
+}
