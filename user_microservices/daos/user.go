@@ -46,7 +46,7 @@ func (m *User) UserCreate(params models.CreateUser) (models.UserCreate, error) {
 	user.Email = params.Email
 	user.Password,_ = EncryptPassword(params.Password)
 	user.Status = "pembeli"
-	user.Verifikasi = "N"
+	user.Verifikasi = "Y"
 	user.CreatedAt = m.helper.GetTimeNow()
 	user.TokenRegister = m.helper.StringWithCharset()
 
@@ -75,7 +75,7 @@ func (m *User) VerifikasiUser(params models.VerifikasiUser) error {
 	verifikasi.TokenRegister = params.TokenRegister
 	verifikasi.IdUser = params.IdUser
 	verifikasi.Email = params.Email
-	verifikasi.Status = "N"
+	verifikasi.Status = "Y"
 	verifikasi.CreatedAt = m.helper.GetTimeNow()
 
 	ti := time.Now()
@@ -89,11 +89,11 @@ func (m *User) VerifikasiUser(params models.VerifikasiUser) error {
 		return err
 	}
 
-	err = m.helper.SendEmailVerifikasi(verifikasi.Email, verifikasi.IdUser, verifikasi.TokenRegister)
-
-	if err != nil {
-		return err
-	}
+	//err = m.helper.SendEmailVerifikasi(verifikasi.Email, verifikasi.IdUser, verifikasi.TokenRegister)
+	//
+	//if err != nil {
+	//	return err
+	//}
 
 	return nil
 }
