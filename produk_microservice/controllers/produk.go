@@ -211,7 +211,7 @@ func (u *Produk) GetDataArtikel(c *gin.Context) {
 		c.JSON(400, response)
 	} else {
 
-		data, err := u.daos.ArtikelGet(params)
+		data,count, err := u.daos.ArtikelGet(params)
 
 		if err != nil {
 			response.ApiStatus = 0
@@ -220,6 +220,7 @@ func (u *Produk) GetDataArtikel(c *gin.Context) {
 		} else {
 			response.ApiStatus = 1
 			response.Data = data
+			response.Count = count
 			response.ApiMessage = common.StatusSukses
 			c.JSON(http.StatusOK, response)
 
@@ -248,7 +249,7 @@ func (u *Produk) ArtikelUpdate(c *gin.Context) {
 		c.JSON(400, response)
 	} else {
 
-		data, err := u.daos.ArtikelUpdate(params)
+		data,count, err := u.daos.ArtikelUpdate(params)
 
 		if err != nil {
 			response.ApiStatus = 0
@@ -257,6 +258,7 @@ func (u *Produk) ArtikelUpdate(c *gin.Context) {
 		} else {
 			response.ApiStatus = 1
 			response.Data = data
+			response.Count = count
 			response.ApiMessage = common.StatusSukses
 			c.JSON(http.StatusOK, response)
 

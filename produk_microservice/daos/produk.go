@@ -210,8 +210,9 @@ func (m *Produk) ArtikelCreate(params models.CreateArtikel) (models.ArtikelCreat
 	return artikel, nil
 }
 
-func (m *Produk) ArtikelGet(params models.GetArtikel) ([]models.ArtikelGet, error) {
+func (m *Produk) ArtikelGet(params models.GetArtikel) ([]models.ArtikelGet,int64, error) {
 
+	var count int64
 	artikel := []models.ArtikelGet{}
 
 	err := databases.DatabaseSellPump.DB.Table("artikel").Order("created_at desc")
@@ -222,6 +223,7 @@ func (m *Produk) ArtikelGet(params models.GetArtikel) ([]models.ArtikelGet, erro
 	if params.Search != "" {
 		err = err.Where("judul_artikel ilike '%"+params.Search+"%'")
 	}
+	err.Count(&count)
 	if params.Limit != nil {
 		err = err.Limit(*params.Limit)
 	}
@@ -235,14 +237,15 @@ func (m *Produk) ArtikelGet(params models.GetArtikel) ([]models.ArtikelGet, erro
 
 
 	if errx != nil {
-		return []models.ArtikelGet{}, errx
+		return []models.ArtikelGet{},count, errx
 	}
 
-	return artikel, nil
+	return artikel,count, nil
 }
 
-func (m *Produk) ArtikelUpdate(params models.UpdateArtikel) ([]models.ArtikelGet, error) {
+func (m *Produk) ArtikelUpdate(params models.UpdateArtikel) ([]models.ArtikelGet,int64, error) {
 
+	var count int64
 	artikel := models.ArtikelUpdate{}
 	getartikel := []models.ArtikelGet{}
 
@@ -255,7 +258,7 @@ func (m *Produk) ArtikelUpdate(params models.UpdateArtikel) ([]models.ArtikelGet
 		os.MkdirAll(pathImage, 0777)
 		errx := m.helper.SaveUploadedFile(params.GambarArtikel, pathImage+filename)
 		if errx != nil{
-			return []models.ArtikelGet{},errx
+			return []models.ArtikelGet{},count,errx
 		}
 
 		url := string(filepath.FromSlash(path+filename))
@@ -275,16 +278,16 @@ func (m *Produk) ArtikelUpdate(params models.UpdateArtikel) ([]models.ArtikelGet
 	err := databases.DatabaseSellPump.DB.Table("artikel").Where("id_artikel = ?", params.IdArtikel).Update(&artikel).Error
 
 	if err != nil {
-		return []models.ArtikelGet{}, err
+		return []models.ArtikelGet{},count, err
 	}
 
 	paramartikel := models.GetArtikel{}
 	paramartikel.IdArtikel = params.IdArtikel
-	getartikel,errx := m.ArtikelGet(paramartikel)
+	getartikel,count,errx := m.ArtikelGet(paramartikel)
 	if errx != nil {
-		return []models.ArtikelGet{}, errx
+		return []models.ArtikelGet{},count, errx
 	}
-	return getartikel, nil
+	return getartikel,count, nil
 
 }
 
