@@ -20,10 +20,11 @@ func (m *Produk) ProdukCreate(params models.CreateProduk) (models.ProdukCreate, 
 
 	insertproduk := models.ProdukCreate{}
 
+	insertproduk.IdProduk = m.helper.StringWithCharset()
 	path := "/produk/"
 	pathImage := "./files/"+path
 	ext := filepath.Ext(params.GambarProduk.Filename)
-	filename := strings.Replace(params.NamaProduk," ","_", -1)+params.KodeProduk+params.TipeProduk+ext
+	filename := insertproduk.IdProduk+ext
 
 	os.MkdirAll(pathImage, 0777)
 	errx := m.helper.SaveUploadedFile(params.GambarProduk, pathImage+filename)
@@ -33,7 +34,7 @@ func (m *Produk) ProdukCreate(params models.CreateProduk) (models.ProdukCreate, 
 
 	url := string(filepath.FromSlash(path+filename))
 
-	insertproduk.IdProduk = m.helper.StringWithCharset()
+
 	insertproduk.NamaProduk = params.NamaProduk
 	insertproduk.HargaProduk = params.HargaProduk
 	insertproduk.KodeProduk = params.KodeProduk
@@ -71,7 +72,7 @@ func (m *Produk) ProdukUpdate(params models.UpdateProduk) ([]models.ProdukGet, i
 		path := "/produk/"
 		pathImage := "./files/"+path
 		ext := filepath.Ext(params.GambarProduk.Filename)
-		filename := strings.Replace(params.NamaProduk," ","_", -1)+params.KodeProduk+params.TipeProduk+ext
+		filename := params.IdProduk+ext
 
 		os.MkdirAll(pathImage, 0777)
 		errx := m.helper.SaveUploadedFile(params.GambarProduk, pathImage+filename)
