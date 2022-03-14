@@ -74,6 +74,7 @@ func (m *Produk) ProdukUpdate(params models.UpdateProduk) ([]models.ProdukGet, i
 		ext := filepath.Ext(params.GambarProduk.Filename)
 		filename := params.IdProduk+ext
 
+
 		os.MkdirAll(pathImage, 0777)
 		errx := m.helper.SaveUploadedFile(params.GambarProduk, pathImage+filename)
 		if errx != nil{

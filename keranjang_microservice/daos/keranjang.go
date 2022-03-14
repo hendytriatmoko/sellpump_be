@@ -166,7 +166,7 @@ func (m *Keranjang) CostGet(params models.RajaOngkir) (string, error) {
 
 	payload := strings.NewReader("origin=" + params.Origin + "&originType=subdistrict" +
 		"&destination=" + params.Destination + "&destinationType=subdistrict&weight=" + params.Weight +
-		"&courier=jne:tiki:pos")
+		"&courier=jne:tiki:pos:sicepat:jnt:wahana:anteraja")
 
 	req, _ := http.NewRequest("POST", url, payload)
 

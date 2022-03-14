@@ -1510,3 +1510,55 @@ Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-
 [GIN] 2022/03/07 - 15:15:43 | 200 |     830.237ms |             ::1 | GET      "/sellpump/api/keranjang/v1/invoice/getinvoice?id_status_pembayaran=2&id_status_pengiriman=2"
 [GIN] 2022/03/07 - 15:15:52 | 200 |    2.0179812s |             ::1 | GET      "/sellpump/api/keranjang/v1/invoice/getinvoice?id_status_pembayaran=2&id_status_pengiriman=3"
 [GIN] 2022/03/07 - 15:16:32 | 200 |    1.0840826s |             ::1 | GET      "/sellpump/api/keranjang/v1/invoice/getinvoice?limit=1&id_status_pembayaran=2&id_status_pengiriman=3"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/keranjang/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/keranjang/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/keranjang/v1/keranjang/getkeranjang --> keranjang_microservice/controllers.(*Keranjang).GetDataKeranjang-fm (6 handlers)
+[GIN-debug] POST   /sellpump/api/keranjang/v1/keranjang/create --> keranjang_microservice/controllers.(*Keranjang).KeranjangCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/keranjang/v1/keranjang/delete --> keranjang_microservice/controllers.(*Keranjang).KeranjangDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/keranjang/v1/keranjang/getprovince --> keranjang_microservice/controllers.(*Keranjang).GetDataRoProvince-fm (5 handlers)
+[GIN-debug] GET    /sellpump/api/keranjang/v1/rajaongkir/getprovince --> keranjang_microservice/controllers.(*Keranjang).GetDataRoProvince-fm (5 handlers)
+[GIN-debug] GET    /sellpump/api/keranjang/v1/rajaongkir/getcity --> keranjang_microservice/controllers.(*Keranjang).GetDataRoCity-fm (5 handlers)
+[GIN-debug] GET    /sellpump/api/keranjang/v1/rajaongkir/getsubdistrict --> keranjang_microservice/controllers.(*Keranjang).GetDataRoSubdistrict-fm (5 handlers)
+[GIN-debug] GET    /sellpump/api/keranjang/v1/rajaongkir/getcost --> keranjang_microservice/controllers.(*Keranjang).GetDataRoCost-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/keranjang/v1/pesanan/create --> keranjang_microservice/controllers.(*Keranjang).PesananCreate-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/keranjang/v1/pesanan/getpesanan --> keranjang_microservice/controllers.(*Keranjang).GetDataPesanan-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/keranjang/v1/invoice/create --> keranjang_microservice/controllers.(*Keranjang).InvoiceCreate-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/keranjang/v1/invoice/getinvoice --> keranjang_microservice/controllers.(*Keranjang).GetDataInvoice-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/keranjang/v1/invoice/update --> keranjang_microservice/controllers.(*Keranjang).InvoiceUpdate-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2205
+[GIN] 2022/03/15 - 05:28:37 | 200 |    1.1469212s |             ::1 | GET      "/sellpump/api/keranjang/v1/rajaongkir/getcost?origin=2113&destination=2117&weight=30000"
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/keranjang/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] HEAD   /sellpump/api/keranjang/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (5 handlers)
+[GIN-debug] GET    /sellpump/api/keranjang/v1/keranjang/getkeranjang --> keranjang_microservice/controllers.(*Keranjang).GetDataKeranjang-fm (6 handlers)
+[GIN-debug] POST   /sellpump/api/keranjang/v1/keranjang/create --> keranjang_microservice/controllers.(*Keranjang).KeranjangCreate-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/keranjang/v1/keranjang/delete --> keranjang_microservice/controllers.(*Keranjang).KeranjangDelete-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/keranjang/v1/keranjang/getprovince --> keranjang_microservice/controllers.(*Keranjang).GetDataRoProvince-fm (5 handlers)
+[GIN-debug] GET    /sellpump/api/keranjang/v1/rajaongkir/getprovince --> keranjang_microservice/controllers.(*Keranjang).GetDataRoProvince-fm (5 handlers)
+[GIN-debug] GET    /sellpump/api/keranjang/v1/rajaongkir/getcity --> keranjang_microservice/controllers.(*Keranjang).GetDataRoCity-fm (5 handlers)
+[GIN-debug] GET    /sellpump/api/keranjang/v1/rajaongkir/getsubdistrict --> keranjang_microservice/controllers.(*Keranjang).GetDataRoSubdistrict-fm (5 handlers)
+[GIN-debug] GET    /sellpump/api/keranjang/v1/rajaongkir/getcost --> keranjang_microservice/controllers.(*Keranjang).GetDataRoCost-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/keranjang/v1/pesanan/create --> keranjang_microservice/controllers.(*Keranjang).PesananCreate-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/keranjang/v1/pesanan/getpesanan --> keranjang_microservice/controllers.(*Keranjang).GetDataPesanan-fm (5 handlers)
+[GIN-debug] POST   /sellpump/api/keranjang/v1/invoice/create --> keranjang_microservice/controllers.(*Keranjang).InvoiceCreate-fm (6 handlers)
+[GIN-debug] GET    /sellpump/api/keranjang/v1/invoice/getinvoice --> keranjang_microservice/controllers.(*Keranjang).GetDataInvoice-fm (6 handlers)
+[GIN-debug] PUT    /sellpump/api/keranjang/v1/invoice/update --> keranjang_microservice/controllers.(*Keranjang).InvoiceUpdate-fm (6 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2205
+[GIN] 2022/03/15 - 05:31:42 | 200 |    2.5849399s |             ::1 | GET      "/sellpump/api/keranjang/v1/rajaongkir/getcost?origin=2113&destination=2117&weight=30000"
