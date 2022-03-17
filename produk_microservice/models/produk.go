@@ -20,6 +20,7 @@ type CreateProduk struct {
 	HargaDiskon		    string `json:"harga_diskon" form:"harga_diskon"`
 	Diskon			    string `json:"diskon" form:"diskon"`
 	BoolDiskon		    string `json:"bool_diskon" form:"bool_diskon"`
+	IdFile				string `json:"id_file" form:"id_file"`
 	CreatedAt        	string `json:"created_at" form:"created_at"`
 }
 type ProdukCreate struct {
@@ -40,6 +41,7 @@ type ProdukCreate struct {
 	HargaDiskon		    string `json:"harga_diskon" form:"harga_diskon"`
 	Diskon			    string `json:"diskon" form:"diskon"`
 	BoolDiskon		    string `json:"bool_diskon" form:"bool_diskon"`
+	IdFile				string `json:"id_file" form:"id_file"`
 	CreatedAt        	string `json:"created_at" form:"created_at"`
 }
 type UpdateProduk struct {
@@ -60,6 +62,7 @@ type UpdateProduk struct {
 	HargaDiskon		    string `json:"harga_diskon" form:"harga_diskon"`
 	Diskon			    string `json:"diskon" form:"diskon"`
 	BoolDiskon		    string `json:"bool_diskon" form:"bool_diskon"`
+	IdFile				string `json:"id_file" form:"id_file"`
 }
 type ProdukUpdate struct {
 	IdProduk			string `json:"id_produk" form:"id_produk"`
@@ -79,6 +82,7 @@ type ProdukUpdate struct {
 	HargaDiskon		    string `json:"harga_diskon" form:"harga_diskon"`
 	Diskon			    string `json:"diskon" form:"diskon"`
 	BoolDiskon		    string `json:"bool_diskon" form:"bool_diskon"`
+	IdFile				string `json:"id_file" form:"id_file"`
 	UpdatedAt        	string `json:"updated_at" form:"updated_at"`
 }
 
@@ -113,6 +117,7 @@ type ProdukGet struct {
 	HargaDiskon		    string `json:"harga_diskon" form:"harga_diskon"`
 	Diskon			    string `json:"diskon" form:"diskon"`
 	BoolDiskon		    string `json:"bool_diskon" form:"bool_diskon"`
+	IdFile				string `json:"id_file" form:"id_file"`
 	CreatedAt        	string `json:"created_at" form:"created_at"`
 	UpdatedAt        	string `json:"updated_at" form:"updated_at"`
 	DeletedAt        	string `json:"deleted_at" form:"deleted_at"`
