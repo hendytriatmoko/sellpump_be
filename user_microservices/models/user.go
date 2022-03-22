@@ -34,6 +34,12 @@ type VerifikasiUser struct {
 	TokenRegister  	string `json:"token_register" form:"token_register"`
 }
 
+type ProfilUser struct {
+	IdProfil		string `json:"id_profil" form:"id_profil"`
+	IdUser			string `json:"id_user" form:"id_user"`
+	CreatedAt   	string `json:"created_at" form:"created_at"`
+}
+
 type GetUser struct {
 	IdUser       		string `json:"id_user" form:"id_user"`
 	Email      		string `json:"email" form:"email"`

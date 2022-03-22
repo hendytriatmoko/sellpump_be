@@ -65,6 +65,13 @@ func (m *User) UserCreate(params models.CreateUser) (models.UserCreate, error) {
 		return models.UserCreate{}, errx
 	}
 
+	dataprofil := models.ProfilUser{}
+	dataprofil.IdUser = user.IdUser
+	erry := m.ProfilUser(dataprofil)
+	if erry != nil {
+		return models.UserCreate{}, erry
+	}
+
 	return user, nil
 }
 
@@ -84,6 +91,28 @@ func (m *User) VerifikasiUser(params models.VerifikasiUser) error {
 	verifikasi.ExpiredAt = next
 
 	err := databases.DatabaseSellPump.DB.Table("verifikasi").Create(&verifikasi).Error
+
+	if err != nil {
+		return err
+	}
+
+	//err = m.helper.SendEmailVerifikasi(verifikasi.Email, verifikasi.IdUser, verifikasi.TokenRegister)
+	//
+	//if err != nil {
+	//	return err
+	//}
+
+	return nil
+}
+
+func (m *User) ProfilUser(params models.ProfilUser) error {
+	profil := models.ProfilUser{}
+
+	profil.IdProfil = m.helper.StringWithCharset()
+	profil.IdUser = params.IdUser
+	profil.CreatedAt = m.helper.GetTimeNow()
+
+	err := databases.DatabaseSellPump.DB.Table("profil").Create(&profil).Error
 
 	if err != nil {
 		return err
