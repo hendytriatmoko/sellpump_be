@@ -13,7 +13,7 @@
   "db_port_warnacrm": "5432",
   "db_name_warnacrm": "sellpump",
   "db_username_warnacrm": "postgres",
-  "db_password_warnacrm": "35536298"
+  "db_password_warnacrm": "*"
 
 
 }
