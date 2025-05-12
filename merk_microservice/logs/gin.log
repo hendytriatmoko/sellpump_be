@@ -202,3 +202,32 @@ Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-
 [GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
 Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
 [GIN-debug] Listening and serving HTTP on :2203
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /sellpump/api/merk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] HEAD   /sellpump/api/merk/photo/*filepath --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (4 handlers)
+[GIN-debug] GET    /sellpump/api/merk/v1/getmerk --> merk_microservices/controllers.(*Merk).GetDataMerk-fm (4 handlers)
+[GIN-debug] POST   /sellpump/api/merk/v1/create --> merk_microservices/controllers.(*Merk).MerkCreate-fm (4 handlers)
+[GIN-debug] PUT    /sellpump/api/merk/v1/update --> merk_microservices/controllers.(*Merk).MerkUpdate-fm (4 handlers)
+[GIN-debug] PUT    /sellpump/api/merk/v1/delete --> merk_microservices/controllers.(*Merk).MerkDelete-fm (4 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Listening and serving HTTP on :2203
+[GIN] 2025/05/12 - 17:39:59 | 200 |     44.0362ms |             ::1 | GET      "/sellpump/api/merk/v1/getmerk"
+[GIN] 2025/05/12 - 17:42:02 | 500 |     67.2353ms |             ::1 | POST     "/sellpump/api/merk/v1/create"
+[GIN] 2025/05/12 - 17:42:15 | 500 |      92.531ms |             ::1 | POST     "/sellpump/api/merk/v1/create"
+[GIN] 2025/05/12 - 17:42:42 | 200 |    100.9496ms |             ::1 | POST     "/sellpump/api/merk/v1/create"
+[GIN] 2025/05/12 - 17:56:03 | 404 |      2.3833ms |             ::1 | GET      "/sellpump/api/merk/photo/v1/merk/Pompa_DAB.png"
+[GIN] 2025/05/12 - 17:56:03 | 404 |            0s |             ::1 | GET      "/favicon.ico"
+[GIN] 2025/05/12 - 17:56:37 | 200 |     83.7401ms |             ::1 | GET      "/sellpump/api/merk/photo/merk/Pompa_DAB.png"
+[GIN] 2025/05/12 - 18:27:52 | 200 |    160.4903ms |             ::1 | POST     "/sellpump/api/merk/v1/create"
+[GIN] 2025/05/12 - 18:28:03 | 200 |    104.7588ms |             ::1 | POST     "/sellpump/api/merk/v1/create"
+[GIN] 2025/05/12 - 18:28:21 | 200 |     42.9824ms |             ::1 | GET      "/sellpump/api/merk/v1/getmerk"
+[GIN] 2025/05/12 - 18:28:47 | 404 |      4.0129ms |             ::1 | GET      "/sellpump/api/user/photo//merk/Pompa_DAB.png"
+[GIN] 2025/05/12 - 18:28:56 | 404 |            0s |             ::1 | GET      "/sellpump/api/user/photo/merk/Pompa_DAB.png"
+[GIN] 2025/05/12 - 18:29:03 | 200 |      3.9369ms |             ::1 | GET      "/sellpump/api/merk/photo/merk/Pompa_DAB.png"

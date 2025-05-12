@@ -9,11 +9,11 @@
   "logMaxAge": 30,
 
   "db_addrs_warnacrm": "192.168.133.90",
-  "db_addrs_warnacrm_public": "188.166.244.164",
+  "db_addrs_warnacrm_public": "116.193.190.97",
   "db_port_warnacrm": "5432",
   "db_name_warnacrm": "sellpump",
-  "db_username_warnacrm": "postgres",
-  "db_password_warnacrm": "*"
+  "db_username_warnacrm": "sellpump",
+  "db_password_warnacrm": "12345678"
 
 
 }
